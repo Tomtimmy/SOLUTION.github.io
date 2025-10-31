@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -10,6 +9,7 @@ import CaseStudiesPage from './pages/CaseStudiesPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 import CaseStudyDetailPage from './pages/CaseStudyDetailPage';
+import BlogDetailPage from './pages/BlogDetailPage';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -35,6 +35,7 @@ const App: React.FC = () => {
             <Route path="/case-studies" element={<CaseStudiesPage />} />
             <Route path="/case-studies/:id" element={<CaseStudyDetailPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
