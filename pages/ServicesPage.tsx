@@ -1,72 +1,155 @@
 import React from 'react';
-import HeroCarousel from '../components/HeroCarousel';
+import Button from '../components/Button';
 
 const services = [
   {
-    title: 'Project Management Consulting',
-    description: 'We provide end-to-end project management support — from planning and execution to monitoring and evaluation — ensuring your projects deliver on time, within scope, and on budget.',
+    title: 'Project Management',
+    description: 'We provide end-to-end project management support to ensure your most critical initiatives are delivered on time, within budget, and to the highest quality standards.',
+    details: [
+      'Comprehensive project planning and scoping',
+      'Agile and traditional methodology implementation',
+      'Risk assessment and mitigation strategies',
+      'Stakeholder communication and management',
+    ],
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>,
   },
   {
     title: 'Data Analytics & Business Intelligence',
-    description: 'We simplify complex data into clear insights that drive smarter decisions, uncover trends, and highlight new opportunities for growth.',
+    description: 'We transform your raw data into a strategic asset, providing clear, actionable insights that drive informed decision-making and uncover new growth opportunities.',
+    details: [
+      'Custom BI dashboard development',
+      'Predictive analytics and forecasting',
+      'Data warehousing and ETL solutions',
+      'Data governance and quality assurance',
+    ],
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
   },
   {
-    title: 'Supply Chain Optimization',
-    description: 'We streamline logistics and procurement systems, helping businesses reduce waste, cut costs, and improve reliability.',
+    title: 'Strategy & Process Improvement',
+    description: 'We help you design and implement agile strategies and streamlined processes that boost operational efficiency, reduce costs, and create a foundation for sustainable growth.',
+    details: [
+      'Business process mapping and optimization',
+      'Change management and implementation support',
+      'Operational framework design',
+      'Performance metric and KPI development',
+    ],
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
   },
   {
-    title: 'Strategy & Business Process Improvement',
-    description: 'We design agile strategies and process frameworks that align with your business goals and boost efficiency.',
-  },
-  {
-    title: 'Coaching & Capacity Development',
-    description: 'Through customized coaching sessions, we build leadership capacity and organizational resilience.',
-  },
-  {
-    title: 'Audit & Feasibility Studies',
-    description: 'We assess operational and financial feasibility to guide investment, expansion, and sustainability decisions.',
-  },
-];
-
-const serviceSlides = [
-  {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Our+Services',
-    title: 'Our Services',
-    subtitle: 'Tailored solutions to drive meaningful results.',
-  },
-  {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Project+Management',
-    title: 'Project Management Consulting',
-    subtitle: 'Ensuring your projects deliver on time, within scope, and on budget.',
-  },
-  {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Data+Analytics',
-    title: 'Data Analytics & Business Intelligence',
-    subtitle: 'Simplifying complex data into clear insights that drive smarter decisions.',
+    title: 'Capacity Development & Training',
+    description: 'We empower your teams with the skills and knowledge they need to excel. Our tailored training programs and coaching are designed to build lasting internal capabilities.',
+    details: [
+      'Leadership and management coaching',
+      'Customized team workshops and training',
+      'Curriculum design and material development',
+      'Continuous improvement and skill-building programs',
+    ],
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M12 12L4 7l8-4 8 4-8 5z" /></svg>,
   }
 ];
 
-
 const ServicesPage: React.FC = () => {
   return (
-    <div className="bg-light-gray">
-      <HeroCarousel slides={serviceSlides} />
-      <div className="py-16 sm:py-24">
+    <div className="bg-white">
+      {/* Hero Section */}
+      <section 
+        className="relative h-80 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://via.placeholder.com/1600x500.png?text=Our+Services')" }}
+      >
+        <div className="absolute inset-0 bg-primary bg-opacity-70 flex items-center justify-center">
+            <div className="text-center text-white p-4">
+                <h1 className="text-4xl font-extrabold sm:text-5xl lg:text-6xl">Our Consulting Services</h1>
+                <p className="mt-4 text-xl max-w-3xl">Tailored solutions designed to address your most critical challenges and unlock sustainable growth.</p>
+            </div>
+        </div>
+      </section>
+
+      {/* Services Grid Section */}
+      <section className="py-16 sm:py-24 bg-light-gray">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl font-extrabold text-primary sm:text-5xl">Our Service Offerings</h1>
-            <p className="mt-4 text-xl text-dark-gray">Comprehensive solutions for your business needs.</p>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">What We Do</h2>
+              <p className="mt-4 text-lg text-dark-gray">We partner with you to transform complexity into clarity, providing expert guidance across four core areas.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <h3 className="text-2xl font-bold text-primary mb-4">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            {services.map(service => (
+              <div key={service.title} className="bg-white p-8 rounded-lg shadow-lg flex flex-col sm:flex-row gap-8 items-start">
+                  <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-gray">
+                      {service.icon}
+                  </div>
+                  <div>
+                      <h3 className="text-2xl font-bold text-dark-gray">{service.title}</h3>
+                      <p className="mt-2 text-gray-600 leading-relaxed">{service.description}</p>
+                      <ul className="mt-4 space-y-2 text-gray-700">
+                        {service.details.map((detail, index) => (
+                          <li key={index} className="flex items-start">
+                            <svg className="flex-shrink-0 h-6 w-6 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                  </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
+      
+      {/* Our Approach Section */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://via.placeholder.com/800x600.png?text=Our+Approach" alt="Consultants in a meeting" className="rounded-lg shadow-xl"/>
+                </div>
+                <div>
+                    <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Collaborative Approach</h2>
+                    <p className="mt-4 text-lg text-dark-gray leading-relaxed">
+                        We believe in partnership. Our process is built on a foundation of collaboration to ensure our solutions are not only effective but also deeply integrated with your organizational culture.
+                    </p>
+                    <div className="mt-6 space-y-4">
+                        <div className="flex items-start">
+                             <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">1</div>
+                             <div>
+                                <h3 className="text-xl font-bold text-dark-gray">Discover & Analyze</h3>
+                                <p className="mt-1 text-gray-600">We begin by listening, immersing ourselves in your challenges to understand your unique context and goals.</p>
+                             </div>
+                        </div>
+                        <div className="flex items-start">
+                            <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">2</div>
+                             <div>
+                                <h3 className="text-xl font-bold text-dark-gray">Design & Strategize</h3>
+                                <p className="mt-1 text-gray-600">Using data-driven insights, we co-create tailored strategies and actionable roadmaps for success.</p>
+                             </div>
+                        </div>
+                         <div className="flex items-start">
+                            <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">3</div>
+                             <div>
+                                <h3 className="text-xl font-bold text-dark-gray">Implement & Empower</h3>
+                                <p className="mt-1 text-gray-600">We work alongside your team to implement solutions, providing the support and training needed for long-term adoption.</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="bg-dark-gray">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+              <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+                  Ready to Drive Real Results?
+              </h2>
+              <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+                  Let’s discuss how our tailored services can address your challenges and help you achieve your strategic objectives.
+              </p>
+              <div className="mt-8 flex justify-center gap-4">
+                  <Button to="/contact" variant="primary">Get In Touch</Button>
+                  <Button to="/case-studies" variant="secondary">See Our Impact</Button>
+              </div>
+          </div>
+      </section>
     </div>
   );
 };
