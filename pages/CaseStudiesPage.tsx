@@ -1,5 +1,5 @@
-
 import React from 'react';
+import Button from '../components/Button';
 
 const achievements = [
   {
@@ -25,6 +25,29 @@ const achievements = [
   },
 ];
 
+const caseStudies = [
+  {
+    id: 1,
+    title: 'Streamlining Supply Chain for a Manufacturing Giant',
+    description: 'We partnered with a leading manufacturer to redesign their logistics network, resulting in a 30% reduction in operational costs and a 15% improvement in delivery times.',
+  },
+  {
+    id: 2,
+    title: 'Data-Driven Strategy for a Retail Startup',
+    description: 'By implementing a bespoke business intelligence dashboard, we helped a retail startup increase their data reporting accuracy by 50% and identify new market segments.',
+  },
+  {
+    id: 3,
+    title: 'Project Turnaround for a Public Sector Initiative',
+    description: 'Our project management expertise helped rescue a critical government project, bringing it back on track and ensuring its successful completion ahead of the revised schedule.',
+  },
+    {
+    id: 4,
+    title: 'Boosting Efficiency for a Non-Profit',
+    description: 'Through process improvement and capacity development, we enabled a non-profit organization to optimize their resource allocation and increase their programmatic impact.',
+  },
+];
+
 const CaseStudiesPage: React.FC = () => {
   return (
     <div className="py-16 sm:py-24 bg-white">
@@ -42,6 +65,23 @@ const CaseStudiesPage: React.FC = () => {
               <p className="mt-2 text-lg text-gray-700">{item.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20">
+          <h2 className="text-3xl font-bold text-center text-dark-gray mb-12">Explore Our Work</h2>
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+            {caseStudies.map((study) => (
+              <div key={study.id} className="bg-light-gray p-8 rounded-lg shadow-lg flex flex-col text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-bold text-primary mb-4">{study.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{study.description}</p>
+                </div>
+                <div className="mt-6">
+                  <Button to="#" variant="secondary">View Details</Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-20 max-w-4xl mx-auto text-center bg-white p-10 rounded-xl shadow-lg">
