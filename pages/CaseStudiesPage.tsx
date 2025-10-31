@@ -1,5 +1,6 @@
+
 import React from 'react';
-import Button from '../components/Button';
+import CaseStudyCard from '../components/CaseStudyCard';
 
 const achievements = [
   {
@@ -25,26 +26,38 @@ const achievements = [
   },
 ];
 
-const caseStudies = [
+export const caseStudies = [
   {
     id: 1,
     title: 'Streamlining Supply Chain for a Manufacturing Giant',
     description: 'We partnered with a leading manufacturer to redesign their logistics network, resulting in a 30% reduction in operational costs and a 15% improvement in delivery times.',
+    challenge: 'The client faced significant logistical inefficiencies, including high transportation costs, delayed shipments, and a lack of visibility into their inventory across multiple warehouses.',
+    solution: 'Our team conducted a comprehensive analysis and implemented a centralized logistics platform. We optimized routing algorithms, integrated real-time tracking, and introduced a just-in-time inventory system.',
+    outcome: 'Achieved a 30% reduction in operational costs, a 15% improvement in on-time delivery rates, and provided the client with end-to-end visibility of their supply chain.',
   },
   {
     id: 2,
     title: 'Data-Driven Strategy for a Retail Startup',
     description: 'By implementing a bespoke business intelligence dashboard, we helped a retail startup increase their data reporting accuracy by 50% and identify new market segments.',
+    challenge: 'The startup was collecting vast amounts of customer data but lacked the tools and expertise to extract meaningful insights, hindering their ability to make informed marketing and product decisions.',
+    solution: 'We developed and deployed a custom business intelligence dashboard that unified data from multiple sources. We also trained their team to analyze customer behavior, sales trends, and campaign performance.',
+    outcome: 'The startup increased its data reporting accuracy by 50%, identified three new profitable market segments, and saw a 25% increase in marketing ROI within six months.',
   },
   {
     id: 3,
     title: 'Project Turnaround for a Public Sector Initiative',
     description: 'Our project management expertise helped rescue a critical government project, bringing it back on track and ensuring its successful completion ahead of the revised schedule.',
+    challenge: 'A high-profile public sector project was plagued by scope creep, budget overruns, and missed deadlines, leading to a loss of stakeholder confidence.',
+    solution: 'Our consultants stepped in to provide robust project management oversight. We re-defined the project scope, established clear communication channels, implemented agile methodologies, and rigorously tracked progress.',
+    outcome: 'The project was successfully delivered 10% under the revised budget and two months ahead of the new schedule, restoring stakeholder trust and achieving all its primary objectives.',
   },
     {
     id: 4,
     title: 'Boosting Efficiency for a Non-Profit',
     description: 'Through process improvement and capacity development, we enabled a non-profit organization to optimize their resource allocation and increase their programmatic impact.',
+    challenge: 'A growing non-profit was struggling with inefficient internal processes and a lack of standardized workflows, which limited their ability to scale their impact effectively.',
+    solution: 'We mapped out their existing processes, identified key bottlenecks, and designed streamlined workflows. We also delivered customized coaching sessions to build leadership capacity and foster a culture of continuous improvement.',
+    outcome: 'The organization reduced administrative overhead by 20%, improved cross-departmental collaboration, and was able to allocate more resources directly to their programs, increasing their overall impact.',
   },
 ];
 
@@ -71,15 +84,12 @@ const CaseStudiesPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-center text-dark-gray mb-12">Explore Our Work</h2>
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {caseStudies.map((study) => (
-              <div key={study.id} className="bg-light-gray p-8 rounded-lg shadow-lg flex flex-col text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div className="flex-grow">
-                  <h3 className="text-2xl font-bold text-primary mb-4">{study.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{study.description}</p>
-                </div>
-                <div className="mt-6">
-                  <Button to="#" variant="secondary">View Details</Button>
-                </div>
-              </div>
+              <CaseStudyCard
+                key={study.id}
+                id={study.id}
+                title={study.title}
+                description={study.description}
+              />
             ))}
           </div>
         </div>
