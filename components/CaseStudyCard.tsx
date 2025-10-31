@@ -16,7 +16,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ id, title, description })
         <p className="text-gray-600 leading-relaxed">{description}</p>
       </div>
       <div className="mt-6">
-        <Button to={`/case-studies/${id}`} variant="secondary">View Details</Button>
+        <Button to={`/case-studies/${id}`} variant="secondary">View Project Details</Button>
       </div>
     </div>
   );
