@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { caseStudies } from './CaseStudiesPage';
@@ -27,20 +26,26 @@ const CaseStudyDetailPage: React.FC = () => {
         <Link to="/case-studies" className="text-primary font-semibold hover:underline mb-8 inline-block">
           &larr; Back to All Case Studies
         </Link>
-        <h1 className="text-4xl font-extrabold text-primary sm:text-5xl leading-tight">{study.title}</h1>
+        
+        <header>
+          <h1 className="text-4xl font-extrabold text-primary sm:text-5xl leading-tight">{study.title}</h1>
+        </header>
+        
+        <img src={study.imageUrl} alt={`Visual for ${study.title}`} className="mt-8 w-full rounded-lg shadow-lg object-cover" style={{ aspectRatio: '16/9' }} />
+
         <div className="mt-12 space-y-10 text-lg text-gray-700 leading-relaxed border-t pt-8">
-          <div>
-            <h2 className="text-3xl font-bold text-dark-gray mb-4">The Challenge</h2>
+          <section aria-labelledby="challenge-heading">
+            <h2 id="challenge-heading" className="text-3xl font-bold text-dark-gray mb-4">The Challenge</h2>
             <p>{study.challenge}</p>
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold text-dark-gray mb-4">Our Solution</h2>
+          </section>
+          <section aria-labelledby="solution-heading">
+            <h2 id="solution-heading" className="text-3xl font-bold text-dark-gray mb-4">Our Solution</h2>
             <p>{study.solution}</p>
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold text-dark-gray mb-4">The Outcome</h2>
+          </section>
+          <section aria-labelledby="outcome-heading">
+            <h2 id="outcome-heading" className="text-3xl font-bold text-dark-gray mb-4">The Outcome</h2>
             <p>{study.outcome}</p>
-          </div>
+          </section>
         </div>
       </div>
     </div>

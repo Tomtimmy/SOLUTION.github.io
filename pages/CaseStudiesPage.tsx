@@ -1,4 +1,3 @@
-
 import React from 'react';
 import CaseStudyCard from '../components/CaseStudyCard';
 
@@ -34,6 +33,7 @@ export const caseStudies = [
     challenge: 'The client faced significant logistical inefficiencies, including high transportation costs, delayed shipments, and a lack of visibility into their inventory across multiple warehouses.',
     solution: 'Our team conducted a comprehensive analysis and implemented a centralized logistics platform. We optimized routing algorithms, integrated real-time tracking, and introduced a just-in-time inventory system.',
     outcome: 'Achieved a 30% reduction in operational costs, a 15% improvement in on-time delivery rates, and provided the client with end-to-end visibility of their supply chain.',
+    imageUrl: 'https://via.placeholder.com/800x500.png?text=Supply+Chain+Optimization',
   },
   {
     id: 2,
@@ -42,6 +42,7 @@ export const caseStudies = [
     challenge: 'The startup was collecting vast amounts of customer data but lacked the tools and expertise to extract meaningful insights, hindering their ability to make informed marketing and product decisions.',
     solution: 'We developed and deployed a custom business intelligence dashboard that unified data from multiple sources. We also trained their team to analyze customer behavior, sales trends, and campaign performance.',
     outcome: 'The startup increased its data reporting accuracy by 50%, identified three new profitable market segments, and saw a 25% increase in marketing ROI within six months.',
+    imageUrl: 'https://via.placeholder.com/800x500.png?text=Data-Driven+Strategy',
   },
   {
     id: 3,
@@ -50,6 +51,7 @@ export const caseStudies = [
     challenge: 'A high-profile public sector project was plagued by scope creep, budget overruns, and missed deadlines, leading to a loss of stakeholder confidence.',
     solution: 'Our consultants stepped in to provide robust project management oversight. We re-defined the project scope, established clear communication channels, implemented agile methodologies, and rigorously tracked progress.',
     outcome: 'The project was successfully delivered 10% under the revised budget and two months ahead of the new schedule, restoring stakeholder trust and achieving all its primary objectives.',
+    imageUrl: 'https://via.placeholder.com/800x500.png?text=Project+Turnaround',
   },
     {
     id: 4,
@@ -58,6 +60,7 @@ export const caseStudies = [
     challenge: 'A growing non-profit was struggling with inefficient internal processes and a lack of standardized workflows, which limited their ability to scale their impact effectively.',
     solution: 'We mapped out their existing processes, identified key bottlenecks, and designed streamlined workflows. We also delivered customized coaching sessions to build leadership capacity and foster a culture of continuous improvement.',
     outcome: 'The organization reduced administrative overhead by 20%, improved cross-departmental collaboration, and was able to allocate more resources directly to their programs, increasing their overall impact.',
+    imageUrl: 'https://via.placeholder.com/800x500.png?text=Non-Profit+Efficiency',
   },
 ];
 
@@ -65,23 +68,26 @@ const CaseStudiesPage: React.FC = () => {
   return (
     <div className="py-16 sm:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <header className="text-center mb-16 max-w-3xl mx-auto">
           <h1 className="text-4xl font-extrabold text-primary sm:text-5xl">Success Stories</h1>
           <p className="mt-4 text-xl text-dark-gray">Demonstrating our impact through tangible results.</p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          {achievements.map((item, index) => (
-            <div key={index} className="bg-light-gray p-8 rounded-lg shadow-md">
-              <div className="flex justify-center items-center mb-4">{item.icon}</div>
-              <p className="text-4xl font-bold text-primary">{item.metric}</p>
-              <p className="mt-2 text-lg text-gray-700">{item.description}</p>
-            </div>
-          ))}
-        </div>
+        <section aria-labelledby="achievements-heading">
+          <h2 id="achievements-heading" className="sr-only">Our Achievements</h2>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            {achievements.map((item, index) => (
+              <div key={index} className="bg-light-gray p-8 rounded-lg shadow-md">
+                <div className="flex justify-center items-center mb-4">{item.icon}</div>
+                <p className="text-4xl font-bold text-primary">{item.metric}</p>
+                <p className="mt-2 text-lg text-gray-700">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        <div className="mt-20">
-          <h2 className="text-3xl font-bold text-center text-dark-gray mb-12">Explore Our Work</h2>
+        <section className="mt-20" aria-labelledby="explore-work-heading">
+          <h2 id="explore-work-heading" className="text-3xl font-bold text-center text-dark-gray mb-12">Explore Our Work</h2>
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {caseStudies.map((study) => (
               <CaseStudyCard
@@ -89,17 +95,18 @@ const CaseStudiesPage: React.FC = () => {
                 id={study.id}
                 title={study.title}
                 description={study.description}
+                imageUrl={study.imageUrl}
               />
             ))}
           </div>
-        </div>
+        </section>
 
-        <div className="mt-20 max-w-4xl mx-auto text-center bg-white p-10 rounded-xl shadow-lg">
-          <h2 className="text-3xl font-bold text-dark-gray">Our Tailored Approach</h2>
+        <section className="mt-20 max-w-4xl mx-auto text-center bg-white p-10 rounded-xl shadow-lg" aria-labelledby="approach-heading">
+          <h2 id="approach-heading" className="text-3xl font-bold text-dark-gray">Our Tailored Approach</h2>
           <p className="mt-4 text-lg text-gray-600 leading-relaxed">
             Our case studies demonstrate how we’ve helped clients achieve remarkable outcomes. Each story showcases our tailored approach — combining insight, innovation, and execution excellence to solve unique challenges and unlock new opportunities.
           </p>
-        </div>
+        </section>
       </div>
     </div>
   );
