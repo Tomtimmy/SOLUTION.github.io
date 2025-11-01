@@ -212,7 +212,7 @@ const ServicesPage: React.FC = () => {
               </p>
               <div className="mt-8 flex justify-center gap-4">
                   <Button to="/contact" variant="primary">Get In Touch</Button>
-                  <Button to="/case-studies" variant="secondary">See Our Impact</Button>
+                  <Button to="/portfolio" variant="secondary">See Our Portfolio</Button>
               </div>
           </div>
       </section>

@@ -26,7 +26,7 @@ const achievements = [
   },
 ];
 
-export const caseStudies = [
+export const portfolioItems = [
   {
     id: 1,
     title: 'Streamlining Supply Chain for a Manufacturing Giant',
@@ -65,32 +65,32 @@ export const caseStudies = [
   },
 ];
 
-const caseStudySlides = [
+const portfolioSlides = [
   {
     imageUrl: 'https://via.placeholder.com/1600x600.png?text=Success+Stories',
-    title: 'Success Stories',
+    title: 'Our Portfolio',
     subtitle: 'Demonstrating our impact through tangible results.',
   },
   {
     imageUrl: 'https://via.placeholder.com/1600x600.png?text=30%25+Cost+Reduction',
     title: '30% Reduction in Operational Costs',
     subtitle: 'See how we streamlined the supply chain for a manufacturing giant.',
-    link: '/case-studies/1',
-    buttonText: 'View Case Study'
+    link: '/portfolio/1',
+    buttonText: 'View Project'
   },
   {
     imageUrl: 'https://via.placeholder.com/1600x600.png?text=50%25+Accuracy+Improvement',
     title: '50% Improvement in Data Accuracy',
     subtitle: 'Discover our data-driven strategy for a retail startup.',
-    link: '/case-studies/2',
-    buttonText: 'View Case Study'
+    link: '/portfolio/2',
+    buttonText: 'View Project'
   }
 ];
 
 const CaseStudiesPage: React.FC = () => {
   return (
     <div className="bg-white">
-      <HeroCarousel slides={caseStudySlides} />
+      <HeroCarousel slides={portfolioSlides} />
       <div className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <section aria-labelledby="achievements-heading">
@@ -109,13 +109,13 @@ const CaseStudiesPage: React.FC = () => {
             <section aria-labelledby="explore-work-heading">
             <h2 id="explore-work-heading" className="text-3xl font-bold text-center text-dark-gray mb-12">Explore Our Work</h2>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-                {caseStudies.map((study) => (
+                {portfolioItems.map((item) => (
                 <CaseStudyCard
-                    key={study.id}
-                    id={study.id}
-                    title={study.title}
-                    description={study.description}
-                    imageUrl={study.imageUrl}
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    description={item.description}
+                    imageUrl={item.imageUrl}
                 />
                 ))}
             </div>
@@ -124,7 +124,7 @@ const CaseStudiesPage: React.FC = () => {
             <section className="mt-20 max-w-4xl mx-auto text-center bg-white p-10 rounded-xl shadow-lg" aria-labelledby="approach-heading">
             <h2 id="approach-heading" className="text-3xl font-bold text-dark-gray">Our Tailored Approach</h2>
             <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-                Our case studies demonstrate how we’ve helped clients achieve remarkable outcomes. Each story showcases our tailored approach — combining insight, innovation, and execution excellence to solve unique challenges and unlock new opportunities.
+                Our portfolio demonstrates how we’ve helped clients achieve remarkable outcomes. Each story showcases our tailored approach — combining insight, innovation, and execution excellence to solve unique challenges and unlock new opportunities.
             </p>
             </section>
         </div>

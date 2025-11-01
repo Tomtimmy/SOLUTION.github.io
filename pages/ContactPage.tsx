@@ -113,21 +113,16 @@ const ContactPage: React.FC = () => {
       return;
     }
 
-    if (GOOGLE_SHEET_CONTACT_URL === 'https://script.google.com/macros/s/AKfycbx0d7ldhsMZyCVlHAM6QiEq2a50HT3nWmST-FV7RCDdcfCIZYT6yhAwsWCDJEpSrZj12w/exec') {
-        setStatus({ type: 'error', message: 'Contact form is not yet configured.' });
-        console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS in ContactPage.tsx');
-        setTimeout(() => setStatus({ type: 'idle', message: '' }), 5000);
-        return;
-    }
-
     setStatus({ type: 'loading', message: 'Sending your message...' });
     
     const data = new FormData();
     data.append('timestamp', new Date().toISOString());
-    Object.entries(formData).forEach(([key, value]) => {
-        data.append(key, String(value));
-
-    });
+    // FIX: Replaced Object.entries loop with explicit, type-safe appends
+    // to avoid type inference issues that caused the `value` to be `unknown`.
+    data.append('name', formData.name);
+    data.append('email', formData.email);
+    data.append('subject', formData.subject);
+    data.append('message', formData.message);
 
     try {
         const response = await fetch(GOOGLE_SHEET_CONTACT_URL, {
@@ -137,7 +132,7 @@ const ContactPage: React.FC = () => {
 
         if (response.ok) {
             setStatus({ type: 'success', message: 'Thank you for your message! We will get back to you shortly.' });
-            setFormData({ timestamp: '', name: '', email: '', subject: '', message: '' }); // Reset form
+            setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
         } else {
             const result = await response.json();
             setStatus({ type: 'error', message: result.message || 'An error occurred. Please try again.' });

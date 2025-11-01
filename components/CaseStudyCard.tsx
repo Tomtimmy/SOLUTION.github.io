@@ -13,9 +13,9 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ id, title, description, i
   const [isShareOpen, setIsShareOpen] = useState(false);
   const shareButtonRef = useRef<HTMLDivElement>(null);
 
-  const caseStudyUrl = `${window.location.origin}/#/case-studies/${id}`;
-  const encodedUrl = encodeURIComponent(caseStudyUrl);
-  const encodedTitle = encodeURIComponent(`Check out this case study: ${title}`);
+  const projectUrl = `${window.location.origin}/#/portfolio/${id}`;
+  const encodedUrl = encodeURIComponent(projectUrl);
+  const encodedTitle = encodeURIComponent(`Check out this project: ${title}`);
 
   const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
   const linkedinShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
@@ -54,14 +54,14 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ id, title, description, i
           <p className="text-gray-600 leading-relaxed">{description}</p>
         </div>
         <div className="mt-6 flex items-center justify-between gap-4">
-          <Button to={`/case-studies/${id}`} variant="secondary">View Project Details</Button>
+          <Button to={`/portfolio/${id}`} variant="secondary">View Project Details</Button>
           
           <div className="relative" ref={shareButtonRef}>
             <button
               onClick={() => setIsShareOpen(!isShareOpen)}
               aria-haspopup="true"
               aria-expanded={isShareOpen}
-              aria-label="Share this case study"
+              aria-label="Share this project"
               className="p-2 rounded-full hover:bg-gray-200 transition-colors duration-300"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-dark-gray" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" /></svg>

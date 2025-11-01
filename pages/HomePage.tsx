@@ -111,7 +111,9 @@ const HomePage: React.FC = () => {
       return;
     }
 
-    if (NEWSLETTER_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwZ14coiHdQpR6eWQGsjdBRTxvQvr8KtK_Cw3Eo0OAoNHQUzzWyDOLN5EZxEwGH3qCI/exec') {
+    // FIX: This check is redundant because the URL constant is already set.
+    // This was causing a TypeScript error because the two literal strings can never be equal.
+    if (NEWSLETTER_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwZ14coiHdQpR6eWQGsjdBRTxvQvr8KtK_Cw3Eo0OAoNHQUzzWyDOLN5EZxEwGH3qCI/exec' && NEWSLETTER_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL')) {
         setMessage('Newsletter functionality is not yet configured.');
         console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER in HomePage.tsx');
         setTimeout(() => setMessage(''), 5000);
