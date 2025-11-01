@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HeroCarousel from '../components/HeroCarousel';
 
 // IMPORTANT: To connect this to your Google Sheet, create a Google Apps Script Web App.
 // 1. Create a new Google Sheet with columns: timestamp, name, email, subject, message.
@@ -25,6 +26,24 @@ const faqs = [
   {
     question: 'How long does a typical consulting engagement last?',
     answer: 'The duration of an engagement varies depending on the project\'s scope and complexity. We offer everything from short-term assessments to long-term partnerships. We define the timeline and deliverables clearly at the outset of every project.',
+  },
+];
+
+const contactSlides = [
+  {
+    imageUrl: 'https://via.placeholder.com/1600x600.png?text=We%27re+Here+to+Help',
+    title: 'Get in Touch',
+    subtitle: "We're here to help and answer any question you might have.",
+  },
+  {
+    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Start+the+Conversation',
+    title: 'Let\'s Start the Conversation',
+    subtitle: 'Reach out to discuss your challenges and discover how we can drive your success.',
+  },
+  {
+    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Book+Your+Consultation',
+    title: 'Book Your Consultation',
+    subtitle: 'Schedule a free, no-obligation consultation with one of our expert consultants today.',
   },
 ];
 
@@ -102,17 +121,7 @@ const ContactPage: React.FC = () => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section 
-        className="relative h-80 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://via.placeholder.com/1600x500.png?text=Contact+Us')" }}
-      >
-        <div className="absolute inset-0 bg-primary bg-opacity-70 flex items-center justify-center">
-            <div className="text-center text-white p-4">
-                <h1 className="text-4xl font-extrabold sm:text-5xl lg:text-6xl">Get in Touch</h1>
-                <p className="mt-4 text-xl max-w-2xl">We're here to help and answer any question you might have.</p>
-            </div>
-        </div>
-      </section>
+      <HeroCarousel slides={contactSlides} />
 
       {/* Contact Form and Info Section */}
       <section className="py-16 sm:py-24 bg-light-gray">
