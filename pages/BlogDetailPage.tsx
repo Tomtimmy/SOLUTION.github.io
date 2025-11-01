@@ -11,9 +11,9 @@ const BlogDetailPage: React.FC = () => {
     return (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <h1 className="text-3xl font-bold text-primary">Blog Post Not Found</h1>
-        <p className="mt-4 text-lg text-dark-gray">The article you are looking for does not exist.</p>
+        <p className="mt-4 text-lg text-text-dark">The article you are looking for does not exist.</p>
         <div className="mt-8">
-            <Link to="/blog" className="inline-block px-8 py-3 rounded-md font-semibold text-center text-white bg-primary hover:bg-blue-800 transition-transform transform hover:scale-105 duration-300 shadow-lg">
+            <Link to="/blog" className="inline-block px-8 py-3 rounded-md font-semibold text-center text-white bg-primary hover:bg-primary-hover transition-transform transform hover:scale-105 duration-300 shadow-lg">
                 Back to Blog
             </Link>
         </div>
@@ -41,7 +41,7 @@ const BlogDetailPage: React.FC = () => {
                   &larr; Back to All Articles
                 </Link>
                 <div 
-                    className="prose prose-lg max-w-none text-dark-gray"
+                    className="prose prose-lg max-w-none text-text-dark"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
             </div>

@@ -163,13 +163,13 @@ const ContactPage: React.FC = () => {
       <HeroCarousel slides={contactSlides} />
 
       {/* Contact Form and Info Section */}
-      <section className="py-16 sm:py-24 bg-light-gray">
+      <section className="py-16 sm:py-24 bg-light-bg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
                 {/* Contact Information */}
                 <div>
-                    <h2 className="text-3xl font-bold text-dark-gray sm:text-4xl">Contact Information</h2>
-                    <p className="mt-4 text-lg text-gray-600">
+                    <h2 className="text-3xl font-bold text-text-dark sm:text-4xl">Contact Information</h2>
+                    <p className="mt-4 text-lg text-text-dark">
                         Reach out to us through any of the following channels. We look forward to hearing from you!
                     </p>
                     <div className="mt-8 space-y-6">
@@ -178,9 +178,9 @@ const ContactPage: React.FC = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                             </div>
                             <div className="ml-4">
-                                <h3 className="text-xl font-semibold text-dark-gray">Our Office</h3>
-                                <p className="mt-1 text-gray-600">Ikeja, Lagos</p>
-                                <p className="text-gray-600">Nigeria</p>
+                                <h3 className="text-xl font-semibold text-text-dark">Our Office</h3>
+                                <p className="mt-1 text-text-dark">Ikeja, Lagos</p>
+                                <p className="text-text-dark">Nigeria</p>
                             </div>
                         </div>
                         <div className="flex items-start">
@@ -188,9 +188,9 @@ const ContactPage: React.FC = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                             </div>
                             <div className="ml-4">
-                                <h3 className="text-xl font-semibold text-dark-gray">Email Us</h3>
-                                <p className="mt-1 text-gray-600">General: contact@csinsight.com</p>
-                                <p className="mt-1 text-gray-600">Projects: consult@csinsight.com</p>
+                                <h3 className="text-xl font-semibold text-text-dark">Email Us</h3>
+                                <p className="mt-1 text-text-dark">General: contact@csinsight.com</p>
+                                <p className="mt-1 text-text-dark">Projects: consult@csinsight.com</p>
                             </div>
                         </div>
                         <div className="flex items-start">
@@ -198,8 +198,8 @@ const ContactPage: React.FC = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                             </div>
                             <div className="ml-4">
-                                <h3 className="text-xl font-semibold text-dark-gray">Call Us</h3>
-                                <p className="mt-1 text-gray-600">(123) 456-7890</p>
+                                <h3 className="text-xl font-semibold text-text-dark">Call Us</h3>
+                                <p className="mt-1 text-text-dark">(123) 456-7890</p>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@ const ContactPage: React.FC = () => {
 
                 {/* Contact Form */}
                 <div className="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 className="text-3xl font-bold text-dark-gray">Send Us a Message</h2>
+                    <h2 className="text-3xl font-bold text-text-dark">Send Us a Message</h2>
                     <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
@@ -264,7 +264,7 @@ const ContactPage: React.FC = () => {
                         <div className="pt-2">
                             <button
                                 type="submit"
-                                className="w-full inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                className="w-full inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-gray-400 disabled:cursor-not-allowed"
                                 disabled={status.type === 'loading'}
                             >
                                 {status.type === 'loading' ? 'Sending...' : 'Send Message'}
@@ -282,14 +282,14 @@ const ContactPage: React.FC = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
               <div className="text-center mb-12">
                     <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Frequently Asked Questions</h2>
-                    <p className="mt-4 text-lg text-dark-gray">Find quick answers to common questions about our services and process.</p>
+                    <p className="mt-4 text-lg text-text-dark">Find quick answers to common questions about our services and process.</p>
               </div>
               <div className="space-y-4">
                   {faqs.map((faq, index) => (
                       <div key={index} className="border-b border-gray-200 py-4 overflow-hidden">
                           <button 
                               onClick={() => toggleFaq(index)} 
-                              className="w-full flex justify-between items-center text-left text-lg font-semibold text-dark-gray focus:outline-none"
+                              className="w-full flex justify-between items-center text-left text-lg font-semibold text-text-dark focus:outline-none"
                               aria-expanded={openFaq === index}
                               aria-controls={`faq-answer-${index}`}
                           >
@@ -305,7 +305,7 @@ const ContactPage: React.FC = () => {
                               className={`grid transition-all duration-500 ease-in-out ${openFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                           >
                             <div className="overflow-hidden">
-                              <p className="mt-4 text-gray-600 leading-relaxed pb-2">
+                              <p className="mt-4 text-text-dark leading-relaxed pb-2">
                                   {faq.answer}
                               </p>
                             </div>
@@ -319,7 +319,7 @@ const ContactPage: React.FC = () => {
       {/* Map Section */}
       <section>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
-              <h2 className="text-3xl font-bold text-dark-gray text-center mb-8">Find Us on the Map</h2>
+              <h2 className="text-3xl font-bold text-text-dark text-center mb-8">Find Us on the Map</h2>
               <div className="w-full h-[500px] rounded-lg shadow-lg overflow-hidden">
                     <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63424.28189035117!2d3.332308945938814!3d6.602737922442431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9228fa2a3999%3A0x875385ede1d34396!2sIkeja%2C%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1698345123456!5m2!1sen!2sus" 

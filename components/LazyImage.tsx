@@ -12,7 +12,7 @@ const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className = '', imageCl
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className={`relative bg-light-gray overflow-hidden ${className}`} style={style}>
+    <div className={`relative bg-light-bg overflow-hidden ${className}`} style={style}>
       <img
         src={src}
         alt={alt}

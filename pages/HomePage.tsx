@@ -176,33 +176,33 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 sm:py-24 bg-light-gray">
+      <section className="py-16 sm:py-24 bg-light-bg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Why Partner with C_S Insight?</h2>
-                <p className="mt-4 text-lg text-dark-gray">We deliver more than just reports; we provide clarity, strategy, and results that matter.</p>
+                <p className="mt-4 text-lg text-text-dark">We deliver more than just reports; we provide clarity, strategy, and results that matter.</p>
             </div>
             <div className="mt-16 grid gap-10 md:grid-cols-3">
                 <div className="text-center">
                     <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
-                    <h3 className="text-xl font-bold text-dark-gray">Data-Driven Strategy</h3>
-                    <p className="mt-2 text-gray-600">Our solutions are built on a foundation of rigorous data analysis, ensuring every decision is informed and impactful.</p>
+                    <h3 className="text-xl font-bold text-text-dark">Data-Driven Strategy</h3>
+                    <p className="mt-2 text-text-dark">Our solutions are built on a foundation of rigorous data analysis, ensuring every decision is informed and impactful.</p>
                 </div>
                  <div className="text-center">
                     <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm-9 3a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                     </div>
-                    <h3 className="text-xl font-bold text-dark-gray">Tailored Solutions</h3>
-                    <p className="mt-2 text-gray-600">We understand that every organization is unique. We craft bespoke strategies that align perfectly with your specific goals.</p>
+                    <h3 className="text-xl font-bold text-text-dark">Tailored Solutions</h3>
+                    <p className="mt-2 text-text-dark">We understand that every organization is unique. We craft bespoke strategies that align perfectly with your specific goals.</p>
                 </div>
                  <div className="text-center">
                     <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     </div>
-                    <h3 className="text-xl font-bold text-dark-gray">Measurable Impact</h3>
-                    <p className="mt-2 text-gray-600">Our success is measured by yours. We focus on delivering tangible outcomes that improve efficiency and drive growth.</p>
+                    <h3 className="text-xl font-bold text-text-dark">Measurable Impact</h3>
+                    <p className="mt-2 text-text-dark">Our success is measured by yours. We focus on delivering tangible outcomes that improve efficiency and drive growth.</p>
                 </div>
             </div>
         </div>
@@ -213,16 +213,16 @@ const HomePage: React.FC = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto">
                   <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Consulting Expertise</h2>
-                  <p className="mt-4 text-lg text-dark-gray">We provide tailored consulting services designed to tackle your most complex challenges and unlock sustainable growth.</p>
+                  <p className="mt-4 text-lg text-text-dark">We provide tailored consulting services designed to tackle your most complex challenges and unlock sustainable growth.</p>
               </div>
               <div className="mt-16 space-y-16">
                   {consultingExpertise.map((item, index) => (
                       <div key={item.title} className="grid md:grid-cols-2 gap-12 items-center">
                           <div className={`order-1 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                              <h3 className="text-2xl font-bold text-dark-gray">{item.title}</h3>
-                              <p className="mt-4 text-lg text-gray-600 leading-relaxed">{item.description}</p>
+                              <h3 className="text-2xl font-bold text-text-dark">{item.title}</h3>
+                              <p className="mt-4 text-lg text-text-dark leading-relaxed">{item.description}</p>
                               <div className="mt-6">
-                                  <Link to="/services" className="font-semibold text-secondary hover:text-green-400">
+                                  <Link to="/services" className="font-semibold text-secondary hover:text-secondary-hover">
                                       Explore Our Services &rarr;
                                   </Link>
                               </div>
@@ -237,7 +237,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Our Core Services Section */}
-      <section className="py-16 sm:py-24 bg-dark-gray text-white">
+      <section className="py-16 sm:py-24 bg-dark-bg text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold sm:text-4xl">Our Core Services</h2>
@@ -245,14 +245,14 @@ const HomePage: React.FC = () => {
             </div>
             <div className="mt-16 grid gap-8 md:grid-cols-3">
                 {coreServices.map(service => (
-                    <div key={service.title} className="bg-gray-800 p-8 rounded-lg text-center flex flex-col items-center">
+                    <div key={service.title} className="bg-dark-bg/80 backdrop-blur-sm p-8 rounded-lg text-center flex flex-col items-center">
                         <div className="flex items-center justify-center h-16 w-16 rounded-full bg-secondary mb-5">
                             {service.icon}
                         </div>
                         <h3 className="text-xl font-bold">{service.title}</h3>
                         <p className="mt-2 text-gray-400 flex-grow">{service.description}</p>
                          <div className="mt-6">
-                            <Link to={service.link} className="font-semibold text-secondary hover:text-green-400">
+                            <Link to={service.link} className="font-semibold text-secondary hover:text-secondary-hover">
                                 Learn More &rarr;
                             </Link>
                         </div>
@@ -269,21 +269,21 @@ const HomePage: React.FC = () => {
             <h2 className="text-3xl font-extrabold text-primary">
               What Our Clients Say
             </h2>
-            <p className="mt-4 text-lg text-dark-gray max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-text-dark max-w-2xl mx-auto">
               Real stories from partners who have achieved success with our guidance.
             </p>
           </div>
           <div className="mt-16 grid gap-8 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-light-gray p-8 rounded-xl shadow-lg flex flex-col">
+              <div key={index} className="bg-light-bg p-8 rounded-xl shadow-lg flex flex-col">
                  <div className="flex-grow">
                     <svg className="w-12 h-12 text-secondary mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                       <path d="M9.333 22.583c0 2.225-1.5 3.333-3.667 3.333-1.05 0-2.25-.5-3.583-1.667l-2.083 2.5c1.45 1.2 3.083 1.917 4.917 1.917 4.5 0 7.417-2.917 7.417-7.583 0-4.083-2.417-7.75-7.167-11.417C4.25 8.75 3.333 8 3.333 6.167c0-1.333.917-2.083 2.167-2.083 1.25 0 2.167.75 2.167 2.083h5c0-4.417-3.333-7.167-7.167-7.167C1.583 1 0 3.5 0 6.417c0 3.167 2.083 5.417 4.25 7.167 2.417 2 4.083 3.75 4.083 5.917V22.5h1zM29.333 22.583c0 2.225-1.5 3.333-3.667 3.333-1.05 0-2.25-.5-3.583-1.667l-2.083 2.5c1.45 1.2 3.083 1.917 4.917 1.917 4.5 0 7.417-2.917 7.417-7.583 0-4.083-2.417-7.75-7.167-11.417C24.25 8.75 23.333 8 23.333 6.167c0-1.333.917-2.083 2.167-2.083 1.25 0 2.167.75 2.167 2.083h5c0-4.417-3.333-7.167-7.167-7.167C21.583 1 20 3.5 20 6.417c0 3.167 2.083 5.417 4.25 7.167 2.417 2 4.083 3.75 4.083 5.917V22.5h1z" />
                     </svg>
-                    <p className="text-gray-600 italic text-lg">"{testimonial.quote}"</p>
+                    <p className="text-text-dark italic text-lg">"{testimonial.quote}"</p>
                  </div>
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <p className="font-bold text-lg text-dark-gray">{testimonial.name}</p>
+                  <p className="font-bold text-lg text-text-dark">{testimonial.name}</p>
                   <p className="text-md text-gray-500">{testimonial.company}</p>
                 </div>
               </div>
@@ -293,7 +293,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-dark-gray">
+      <section className="bg-dark-bg">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
               <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
                   Ready to Unlock Your Organization's Potential?
@@ -302,10 +302,10 @@ const HomePage: React.FC = () => {
                   Let's discuss how our tailored consulting services can help you navigate your challenges and achieve measurable success.
               </p>
               <div className="mt-8 flex justify-center gap-4">
-                  <Link to="/contact" className="inline-block px-8 py-3 rounded-md font-semibold text-center transition-transform transform hover:scale-105 duration-300 shadow-lg bg-secondary text-white hover:bg-green-600">
+                  <Link to="/contact" className="inline-block px-8 py-3 rounded-md font-semibold text-center transition-transform transform hover:scale-105 duration-300 shadow-lg bg-secondary text-primary-dark hover:bg-secondary-hover">
                     Book an Appointment
                   </Link>
-                   <Link to="/services" className="inline-block px-8 py-3 rounded-md font-semibold text-center transition-transform transform hover:scale-105 duration-300 shadow-lg bg-transparent border-2 border-white text-white hover:bg-white hover:text-dark-gray">
+                   <Link to="/services" className="inline-block px-8 py-3 rounded-md font-semibold text-center transition-transform transform hover:scale-105 duration-300 shadow-lg bg-transparent border-2 border-white text-white hover:bg-white hover:text-text-dark">
                     Explore Our Services
                   </Link>
               </div>
@@ -318,7 +318,7 @@ const HomePage: React.FC = () => {
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
               Stay Ahead with Our Insights
             </h2>
-            <p className="mt-4 text-lg leading-6 text-indigo-200 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg leading-6 text-blue-200 max-w-2xl mx-auto">
               Subscribe to our newsletter for the latest industry analysis, expert advice, and success stories delivered right to your inbox.
             </p>
             <form onSubmit={handleNewsletterSubmit} className="mt-8 sm:flex max-w-md mx-auto">
@@ -331,7 +331,7 @@ const HomePage: React.FC = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-5 py-3 border border-transparent rounded-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white text-dark-gray"
+                className="w-full px-5 py-3 border border-transparent rounded-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white text-text-dark"
                 placeholder="Enter your email"
                 disabled={isSubmitting}
               />
@@ -339,7 +339,7 @@ const HomePage: React.FC = () => {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-secondary disabled:bg-gray-400 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-text-dark bg-secondary hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-secondary disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 </button>

@@ -30,7 +30,7 @@ const BlogPage: React.FC = () => {
   }, [searchTerm, selectedCategory]);
 
   return (
-    <div className="bg-light-gray">
+    <div className="bg-light-bg">
       {/* Hero Carousel Section */}
       <section className="relative h-96 w-full overflow-hidden">
         {featuredPosts.map((post, index) => (
@@ -43,7 +43,7 @@ const BlogPage: React.FC = () => {
               <div className="text-center text-white p-4 max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-extrabold">{post.title}</h1>
                 <p className="mt-4 text-lg">{post.excerpt}</p>
-                <Link to={`/blog/${post.id}`} className="mt-6 inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-800 transition-colors duration-300">
+                <Link to={`/blog/${post.id}`} className="mt-6 inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-hover transition-colors duration-300">
                   Read Full Story
                 </Link>
               </div>
@@ -61,7 +61,7 @@ const BlogPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-4xl font-extrabold text-primary sm:text-5xl">Blog & Thought Leadership</h2>
-            <p className="mt-4 text-xl text-dark-gray">
+            <p className="mt-4 text-xl text-text-dark">
               Industry insights, research updates, and practical advice on data management, business transformation, and operational leadership.
             </p>
           </div>
@@ -85,7 +85,7 @@ const BlogPage: React.FC = () => {
                   className={`px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300 ${
                     selectedCategory === category
                       ? 'bg-primary text-white'
-                      : 'bg-white text-dark-gray hover:bg-gray-200'
+                      : 'bg-white text-text-dark hover:bg-gray-200'
                   }`}
                 >
                   {category}
@@ -103,12 +103,12 @@ const BlogPage: React.FC = () => {
                   <div className="p-6 flex-grow flex flex-col">
                     <div className="flex-grow">
                         <p className="text-sm font-semibold text-secondary uppercase">{post.category}</p>
-                        <h3 className="mt-2 text-xl font-bold text-dark-gray">{post.title}</h3>
-                        <p className="mt-3 text-base text-gray-600">{post.excerpt}</p>
+                        <h3 className="mt-2 text-xl font-bold text-text-dark">{post.title}</h3>
+                        <p className="mt-3 text-base text-text-dark">{post.excerpt}</p>
                     </div>
                     <div className="mt-6 flex justify-between items-center">
                       <p className="text-sm text-gray-500">{post.date}</p>
-                      <Link to={`/blog/${post.id}`} className="font-semibold text-primary hover:text-blue-800">
+                      <Link to={`/blog/${post.id}`} className="font-semibold text-primary hover:text-primary-hover">
                         Read More &rarr;
                       </Link>
                     </div>
@@ -116,7 +116,7 @@ const BlogPage: React.FC = () => {
                 </div>
               ))
             ) : (
-              <p className="md:col-span-2 lg:col-span-3 text-center text-lg text-gray-600">
+              <p className="md:col-span-2 lg:col-span-3 text-center text-lg text-text-dark">
                 No articles found. Try adjusting your search or filter.
               </p>
             )}

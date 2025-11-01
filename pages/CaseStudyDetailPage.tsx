@@ -11,9 +11,9 @@ const CaseStudyDetailPage: React.FC = () => {
     return (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
         <h1 className="text-3xl font-bold text-primary">Project Not Found</h1>
-        <p className="mt-4 text-lg text-dark-gray">The project you are looking for does not exist.</p>
+        <p className="mt-4 text-lg text-text-dark">The project you are looking for does not exist.</p>
         <div className="mt-8">
-            <Link to="/portfolio" className="inline-block px-8 py-3 rounded-md font-semibold text-center text-white bg-primary hover:bg-blue-800 transition-transform transform hover:scale-105 duration-300 shadow-lg">
+            <Link to="/portfolio" className="inline-block px-8 py-3 rounded-md font-semibold text-center text-white bg-primary hover:bg-primary-hover transition-transform transform hover:scale-105 duration-300 shadow-lg">
                 Back to Portfolio
             </Link>
         </div>
@@ -40,17 +40,17 @@ const CaseStudyDetailPage: React.FC = () => {
           imageClassName="rounded-lg object-cover"
         />
 
-        <div className="mt-12 space-y-10 text-lg text-gray-700 leading-relaxed border-t pt-8">
+        <div className="mt-12 space-y-10 text-lg text-text-dark leading-relaxed border-t pt-8">
           <section aria-labelledby="challenge-heading">
-            <h2 id="challenge-heading" className="text-3xl font-bold text-dark-gray mb-4">The Challenge</h2>
+            <h2 id="challenge-heading" className="text-3xl font-bold text-text-dark mb-4">The Challenge</h2>
             <p>{project.challenge}</p>
           </section>
           <section aria-labelledby="solution-heading">
-            <h2 id="solution-heading" className="text-3xl font-bold text-dark-gray mb-4">Our Solution</h2>
+            <h2 id="solution-heading" className="text-3xl font-bold text-text-dark mb-4">Our Solution</h2>
             <p>{project.solution}</p>
           </section>
           <section aria-labelledby="outcome-heading">
-            <h2 id="outcome-heading" className="text-3xl font-bold text-dark-gray mb-4">The Outcome</h2>
+            <h2 id="outcome-heading" className="text-3xl font-bold text-text-dark mb-4">The Outcome</h2>
             <p>{project.outcome}</p>
           </section>
         </div>

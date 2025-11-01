@@ -72,20 +72,20 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div className="order-2 lg:order-1">
-                    <h2 className="text-3xl font-bold text-dark-gray sm:text-4xl">From Vision to Value</h2>
-                    <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+                    <h2 className="text-3xl font-bold text-text-dark sm:text-4xl">From Vision to Value</h2>
+                    <p className="mt-6 text-lg text-text-dark leading-relaxed">
                         Founded with a commitment to clarity, insight, and measurable impact, C_S Insight and Solution Firm partners with businesses, NGOs, and government organizations to transform potential into performance. We believe that the greatest opportunities are often hidden within the greatest complexities.
                     </p>
                     <div className="mt-8 space-y-6">
-                        <div className="bg-light-gray p-6 rounded-lg">
+                        <div className="bg-light-bg p-6 rounded-lg">
                             <h3 className="text-2xl font-bold text-primary">Our Mission</h3>
-                            <p className="mt-2 text-lg text-gray-700">
+                            <p className="mt-2 text-lg text-text-dark">
                                 To empower organizations with actionable insight that turns complexity into opportunity.
                             </p>
                         </div>
-                        <div className="bg-light-gray p-6 rounded-lg">
+                        <div className="bg-light-bg p-6 rounded-lg">
                             <h3 className="text-2xl font-bold text-primary">Our Vision</h3>
-                            <p className="mt-2 text-lg text-gray-700">
+                            <p className="mt-2 text-lg text-text-dark">
                                 To be the preferred consulting partner recognized for clarity, integrity, and impact across Africa and beyond.
                             </p>
                         </div>
@@ -99,19 +99,19 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Meet Our Leadership */}
-      <section className="py-16 sm:py-24 bg-light-gray">
+      <section className="py-16 sm:py-24 bg-light-bg">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto">
                   <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Meet Our Leadership</h2>
-                  <p className="mt-4 text-lg text-dark-gray">The experienced team dedicated to your success.</p>
+                  <p className="mt-4 text-lg text-text-dark">The experienced team dedicated to your success.</p>
               </div>
               <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
                   {leadershipTeam.map(leader => (
                       <div key={leader.name} className="bg-white text-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                           <LazyImage src={leader.imageUrl} alt={`Photo of ${leader.name}`} className="w-32 h-32 rounded-full mx-auto mb-5 ring-4 ring-secondary" imageClassName="object-cover rounded-full"/>
-                          <h3 className="text-xl font-bold text-dark-gray">{leader.name}</h3>
+                          <h3 className="text-xl font-bold text-text-dark">{leader.name}</h3>
                           <p className="text-md font-semibold text-primary">{leader.title}</p>
-                          <p className="mt-3 text-base text-gray-600">{leader.bio}</p>
+                          <p className="mt-3 text-base text-text-dark">{leader.bio}</p>
                       </div>
                   ))}
               </div>
@@ -123,8 +123,8 @@ const AboutPage: React.FC = () => {
       <section className="py-16 sm:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-3xl font-bold text-dark-gray sm:text-4xl">The Principles That Guide Us</h2>
-                <p className="mt-4 text-lg text-dark-gray">Our core values are the foundation of every partnership and solution we deliver.</p>
+                <h2 className="text-3xl font-bold text-text-dark sm:text-4xl">The Principles That Guide Us</h2>
+                <p className="mt-4 text-lg text-text-dark">Our core values are the foundation of every partnership and solution we deliver.</p>
             </div>
             <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 {coreValues.map((value) => (
@@ -133,7 +133,7 @@ const AboutPage: React.FC = () => {
                     {value.icon}
                     </div>
                     <h3 className="text-xl font-semibold text-primary">{value.name}</h3>
-                    <p className="mt-2 text-base text-gray-600">{value.description}</p>
+                    <p className="mt-2 text-base text-text-dark">{value.description}</p>
                 </div>
                 ))}
             </div>
@@ -141,7 +141,7 @@ const AboutPage: React.FC = () => {
       </section>
 
        {/* Final CTA Section */}
-      <section className="bg-dark-gray">
+      <section className="bg-dark-bg">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
               <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
                   Ready to Partner with Us?

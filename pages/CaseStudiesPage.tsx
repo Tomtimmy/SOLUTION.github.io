@@ -97,17 +97,17 @@ const CaseStudiesPage: React.FC = () => {
             <h2 id="achievements-heading" className="sr-only">Our Achievements</h2>
             <div className="grid md:grid-cols-3 gap-8 text-center mb-20">
                 {achievements.map((item, index) => (
-                <div key={index} className="bg-light-gray p-8 rounded-lg shadow-md">
+                <div key={index} className="bg-light-bg p-8 rounded-lg shadow-md">
                     <div className="flex justify-center items-center mb-4">{item.icon}</div>
                     <p className="text-4xl font-bold text-primary">{item.metric}</p>
-                    <p className="mt-2 text-lg text-gray-700">{item.description}</p>
+                    <p className="mt-2 text-lg text-text-dark">{item.description}</p>
                 </div>
                 ))}
             </div>
             </section>
 
             <section aria-labelledby="explore-work-heading">
-            <h2 id="explore-work-heading" className="text-3xl font-bold text-center text-dark-gray mb-12">Explore Our Work</h2>
+            <h2 id="explore-work-heading" className="text-3xl font-bold text-center text-text-dark mb-12">Explore Our Work</h2>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
                 {portfolioItems.map((item) => (
                 <CaseStudyCard
@@ -122,8 +122,8 @@ const CaseStudiesPage: React.FC = () => {
             </section>
 
             <section className="mt-20 max-w-4xl mx-auto text-center bg-white p-10 rounded-xl shadow-lg" aria-labelledby="approach-heading">
-            <h2 id="approach-heading" className="text-3xl font-bold text-dark-gray">Our Tailored Approach</h2>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+            <h2 id="approach-heading" className="text-3xl font-bold text-text-dark">Our Tailored Approach</h2>
+            <p className="mt-4 text-lg text-text-dark leading-relaxed">
                 Our portfolio demonstrates how we’ve helped clients achieve remarkable outcomes. Each story showcases our tailored approach — combining insight, innovation, and execution excellence to solve unique challenges and unlock new opportunities.
             </p>
             </section>

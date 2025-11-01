@@ -39,7 +39,7 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollHandler />
-      <div className="flex flex-col min-h-screen font-sans text-dark-gray">
+      <div className="flex flex-col min-h-screen font-sans text-text-dark">
         <Header />
         <main className="flex-grow">
           <Routes>

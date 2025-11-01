@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
@@ -49,7 +48,7 @@ const Header: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-dark-gray hover:text-primary focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-text-dark hover:text-primary focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
@@ -90,7 +89,7 @@ const Header: React.FC = () => {
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
                   `${
-                    isActive ? 'bg-primary text-white' : 'text-dark-gray hover:bg-light-gray'
+                    isActive ? 'bg-primary text-white' : 'text-text-dark hover:bg-light-bg'
                   } block px-3 py-2 rounded-md text-base font-medium`
                 }
               >
