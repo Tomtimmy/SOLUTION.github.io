@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
+import HeroCarousel from '../components/HeroCarousel';
 
 const services = [
   {
@@ -48,21 +49,35 @@ const services = [
   }
 ];
 
+const serviceSlides = [
+  {
+    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Project+Management',
+    title: 'Expert Project Management',
+    subtitle: 'Delivering your most critical initiatives on time and within budget.',
+  },
+  {
+    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Data+Analytics',
+    title: 'Data Analytics & BI',
+    subtitle: 'Transforming your raw data into a powerful strategic asset for growth.',
+  },
+  {
+    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Strategy',
+    title: 'Strategy & Process Improvement',
+    subtitle: 'Designing agile strategies and streamlined processes for peak efficiency.',
+  },
+    {
+    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Capacity+Development',
+    title: 'Capacity Development & Training',
+    subtitle: 'Empowering your teams with the skills and knowledge they need to excel.',
+  }
+];
+
+
 const ServicesPage: React.FC = () => {
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <section 
-        className="relative h-80 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://via.placeholder.com/1600x500.png?text=Our+Services')" }}
-      >
-        <div className="absolute inset-0 bg-primary bg-opacity-70 flex items-center justify-center">
-            <div className="text-center text-white p-4">
-                <h1 className="text-4xl font-extrabold sm:text-5xl lg:text-6xl">Our Consulting Services</h1>
-                <p className="mt-4 text-xl max-w-3xl">Tailored solutions designed to address your most critical challenges and unlock sustainable growth.</p>
-            </div>
-        </div>
-      </section>
+      {/* Hero Carousel Section */}
+      <HeroCarousel slides={serviceSlides} />
 
       {/* Services Grid Section */}
       <section className="py-16 sm:py-24 bg-light-gray">
