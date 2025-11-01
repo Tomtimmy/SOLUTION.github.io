@@ -1,5 +1,25 @@
 import React, { useState } from 'react';
 
+const faqs = [
+  {
+    question: 'What types of organizations do you work with?',
+    answer: 'We partner with a diverse range of clients, including startups, established businesses, non-governmental organizations (NGOs), and government agencies. Our solutions are tailored to meet the unique needs of each organization.',
+  },
+  {
+    question: 'How do you begin a new project?',
+    answer: 'Every project starts with a discovery phase where we immerse ourselves in your challenges and goals. We conduct thorough analysis and collaborate closely with your team to ensure we have a deep understanding of your needs before designing a strategy.',
+  },
+  {
+    question: 'What makes your consulting firm different?',
+    answer: 'Our key differentiator is our commitment to delivering measurable impact. We combine rigorous data analysis with practical, hands-on implementation support to ensure our solutions don\'t just look good on paper—they deliver real, tangible results.',
+  },
+  {
+    question: 'How long does a typical consulting engagement last?',
+    answer: 'The duration of an engagement varies depending on the project\'s scope and complexity. We offer everything from short-term assessments to long-term partnerships. We define the timeline and deliverables clearly at the outset of every project.',
+  },
+];
+
+
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -8,6 +28,12 @@ const ContactPage: React.FC = () => {
     message: '',
   });
   const [statusMessage, setStatusMessage] = useState('');
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -63,8 +89,8 @@ const ContactPage: React.FC = () => {
                             </div>
                             <div className="ml-4">
                                 <h3 className="text-xl font-semibold text-dark-gray">Our Office</h3>
-                                <p className="mt-1 text-gray-600">123 Consulting Avenue, Suite 100</p>
-                                <p className="text-gray-600">Innovation City, 54321</p>
+                                <p className="mt-1 text-gray-600">Ikeja, Lagos</p>
+                                <p className="text-gray-600">Nigeria</p>
                             </div>
                         </div>
                         <div className="flex items-start">
@@ -73,7 +99,8 @@ const ContactPage: React.FC = () => {
                             </div>
                             <div className="ml-4">
                                 <h3 className="text-xl font-semibold text-dark-gray">Email Us</h3>
-                                <p className="mt-1 text-gray-600">contact@csinsight.com</p>
+                                <p className="mt-1 text-gray-600">General: contact@csinsight.com</p>
+                                <p className="mt-1 text-gray-600">Projects: consult@csinsight.com</p>
                             </div>
                         </div>
                         <div className="flex items-start">
@@ -154,13 +181,61 @@ const ContactPage: React.FC = () => {
             </div>
         </div>
       </section>
+      
+      {/* FAQ Section */}
+      <section className="py-16 sm:py-24 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+              <div className="text-center mb-12">
+                    <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Frequently Asked Questions</h2>
+                    <p className="mt-4 text-lg text-dark-gray">Find quick answers to common questions about our services and process.</p>
+              </div>
+              <div className="space-y-4">
+                  {faqs.map((faq, index) => (
+                      <div key={index} className="border-b border-gray-200 py-4 overflow-hidden">
+                          <button 
+                              onClick={() => toggleFaq(index)} 
+                              className="w-full flex justify-between items-center text-left text-lg font-semibold text-dark-gray focus:outline-none"
+                              aria-expanded={openFaq === index}
+                              aria-controls={`faq-answer-${index}`}
+                          >
+                              <span id={`faq-question-${index}`}>{faq.question}</span>
+                              <span className="transform transition-transform duration-300" style={{ transform: openFaq === index ? 'rotate(45deg)' : 'rotate(0)' }}>
+                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                              </span>
+                          </button>
+                          <div 
+                              id={`faq-answer-${index}`}
+                              role="region"
+                              aria-labelledby={`faq-question-${index}`}
+                              className={`grid transition-all duration-500 ease-in-out ${openFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                          >
+                            <div className="overflow-hidden">
+                              <p className="mt-4 text-gray-600 leading-relaxed pb-2">
+                                  {faq.answer}
+                              </p>
+                            </div>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </section>
 
       {/* Map Section */}
       <section>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
               <h2 className="text-3xl font-bold text-dark-gray text-center mb-8">Find Us on the Map</h2>
-              <div>
-                  <img src="https://via.placeholder.com/1200x500.png?text=Map+of+Our+Location" alt="Map showing office location" className="w-full h-auto object-cover rounded-lg shadow-lg"/>
+              <div className="w-full h-[500px] rounded-lg shadow-lg overflow-hidden">
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63424.28189035117!2d3.332308945938814!3d6.602737922442431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9228fa2a3999%3A0x875385ede1d34396!2sIkeja%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1698345123456!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen={true}
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Google Map of Ikeja, Lagos, Nigeria"
+                  ></iframe>
               </div>
           </div>
       </section>

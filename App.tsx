@@ -10,6 +10,7 @@ import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 import CaseStudyDetailPage from './pages/CaseStudyDetailPage';
 import BlogDetailPage from './pages/BlogDetailPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 const ScrollHandler: React.FC = () => {
   const { pathname, hash } = useLocation();
@@ -50,6 +51,7 @@ const App: React.FC = () => {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogDetailPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           </Routes>
         </main>
         <Footer />

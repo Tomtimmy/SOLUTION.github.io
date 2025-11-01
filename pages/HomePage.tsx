@@ -11,6 +11,19 @@ const clientLogos = [
   { name: 'Cyberdyne Systems', placeholder: true },
 ];
 
+const consultingExpertise = [
+    {
+        title: 'Strategic Consulting',
+        description: 'We partner with you to develop clear, data-driven strategies that align with your long-term vision. Our collaborative approach ensures that the solutions we design are not only innovative but also practical and sustainable for your organization.',
+        imageUrl: 'https://via.placeholder.com/800x600.png?text=Strategic+Planning',
+    },
+    {
+        title: 'Operational Consulting',
+        description: 'Our team excels at identifying inefficiencies and optimizing your core business processes. From supply chain management to internal workflows, we help you reduce costs, improve productivity, and enhance the quality of your service delivery.',
+        imageUrl: 'https://via.placeholder.com/800x600.png?text=Operational+Efficiency',
+    }
+];
+
 const coreServices = [
     {
         title: 'Project Management',
@@ -149,6 +162,34 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
         </div>
+      </section>
+
+      {/* Our Consulting Expertise Section */}
+      <section className="py-16 sm:py-24 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto">
+                  <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Consulting Expertise</h2>
+                  <p className="mt-4 text-lg text-dark-gray">We provide tailored consulting services designed to tackle your most complex challenges and unlock sustainable growth.</p>
+              </div>
+              <div className="mt-16 space-y-16">
+                  {consultingExpertise.map((item, index) => (
+                      <div key={item.title} className="grid md:grid-cols-2 gap-12 items-center">
+                          <div className={`order-1 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
+                              <h3 className="text-2xl font-bold text-dark-gray">{item.title}</h3>
+                              <p className="mt-4 text-lg text-gray-600 leading-relaxed">{item.description}</p>
+                              <div className="mt-6">
+                                  <Link to="/services" className="font-semibold text-secondary hover:text-green-400">
+                                      Explore Our Services &rarr;
+                                  </Link>
+                              </div>
+                          </div>
+                          <div className={`order-2 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+                                <img src={item.imageUrl} alt={item.title} className="rounded-lg shadow-xl"/>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
       </section>
 
       {/* Our Core Services Section */}
