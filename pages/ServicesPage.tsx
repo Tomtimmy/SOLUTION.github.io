@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
+import Modal from '../components/Modal';
 
-const services = [
+// Define a type for our service objects for better type safety
+interface Service {
+  title: string;
+  description: string;
+  details: string[];
+  icon: React.ReactNode;
+}
+
+const services: Service[] = [
   {
     title: 'Project Management',
     description: 'We provide end-to-end project management support to ensure your most critical initiatives are delivered on time, within budget, and to the highest quality standards.',
@@ -11,6 +20,7 @@ const services = [
       'Agile and traditional methodology implementation',
       'Risk assessment and mitigation strategies',
       'Stakeholder communication and management',
+      'Quality assurance and control',
     ],
     icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>,
   },
@@ -18,10 +28,11 @@ const services = [
     title: 'Data Analytics & Business Intelligence',
     description: 'We transform your raw data into a strategic asset, providing clear, actionable insights that drive informed decision-making and uncover new growth opportunities.',
     details: [
-      'Custom BI dashboard development',
-      'Predictive analytics and forecasting',
+      'Custom BI dashboard development (Tableau, Power BI)',
+      'Predictive analytics and forecasting models',
       'Data warehousing and ETL solutions',
-      'Data governance and quality assurance',
+      'Data governance and quality assurance frameworks',
+      'Customer segmentation and behavior analysis',
     ],
     icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
   },
@@ -29,10 +40,11 @@ const services = [
     title: 'Strategy & Process Improvement',
     description: 'We help you design and implement agile strategies and streamlined processes that boost operational efficiency, reduce costs, and create a foundation for sustainable growth.',
     details: [
-      'Business process mapping and optimization',
+      'Business process mapping and re-engineering (BPMN)',
       'Change management and implementation support',
-      'Operational framework design',
+      'Operational framework design (e.g., Lean, Six Sigma)',
       'Performance metric and KPI development',
+      'Organizational design and restructuring',
     ],
     icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
   },
@@ -40,13 +52,38 @@ const services = [
     title: 'Capacity Development & Training',
     description: 'We empower your teams with the skills and knowledge they need to excel. Our tailored training programs and coaching are designed to build lasting internal capabilities.',
     details: [
-      'Leadership and management coaching',
-      'Customized team workshops and training',
+      'Leadership and management coaching programs',
+      'Customized team workshops on data literacy, project management, etc.',
       'Curriculum design and material development',
       'Continuous improvement and skill-building programs',
+      'Train-the-trainer initiatives for sustainable learning',
     ],
     icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M12 12L4 7l8-4 8 4-8 5z" /></svg>,
-  }
+  },
+  // {
+  //   title: 'Supply Chain Optimization',
+  //   description: 'We streamline logistics and procurement systems, helping businesses reduce waste, cut costs, and improve reliability from end to end.',
+  //   details: [
+  //     'Logistics network design and optimization',
+  //     'Procurement and strategic sourcing',
+  //     'Inventory management and demand forecasting',
+  //     'Supplier relationship management',
+  //     'Implementation of SCM software solutions',
+  //   ],
+  //   icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-2h8zM21 16h-2a2 2 0 00-2 2v-6a2 2 0 00-2-2H9" /></svg>,
+  // },
+  // {
+  //   title: 'Audit & Feasibility Studies',
+  //   description: 'We assess operational and financial feasibility to guide investment, expansion, and sustainability decisions with confidence.',
+  //   details: [
+  //     'Financial viability and ROI analysis',
+  //     'Market research and competitive analysis',
+  //     'Operational feasibility and resource planning',
+  //     'Risk assessment and mitigation reports',
+  //     'Comprehensive due diligence for investments',
+  //   ],
+  //   icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>,
+  // },
 ];
 
 const serviceSlides = [
@@ -72,7 +109,6 @@ const serviceSlides = [
   }
 ];
 
-// Helper function to create a URL-friendly slug
 const slugify = (text: string) =>
   text
     .toLowerCase()
@@ -82,35 +118,43 @@ const slugify = (text: string) =>
 
 
 const ServicesPage: React.FC = () => {
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+  const handleLearnMore = (service: Service) => {
+    setSelectedService(service);
+  };
+
+  const closeModal = () => {
+    setSelectedService(null);
+  };
+
   return (
     <div className="bg-white">
-      {/* Hero Carousel Section */}
       <HeroCarousel slides={serviceSlides} />
 
-      {/* Services Grid Section */}
       <section className="py-16 sm:py-24 bg-light-gray">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">What We Do</h2>
-              <p className="mt-4 text-lg text-dark-gray">We partner with you to transform complexity into clarity, providing expert guidance across four core areas.</p>
+              <p className="mt-4 text-lg text-dark-gray">We partner with you to transform complexity into clarity, providing expert guidance across our core service areas.</p>
           </div>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {services.map(service => (
-              <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col sm:flex-row gap-8 items-start scroll-mt-24">
-                  <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-gray">
+              <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-start scroll-mt-24">
+                  <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-gray mb-4">
                       {service.icon}
                   </div>
-                  <div>
+                  <div className="flex-grow">
                       <h3 className="text-2xl font-bold text-dark-gray">{service.title}</h3>
                       <p className="mt-2 text-gray-600 leading-relaxed">{service.description}</p>
-                      <ul className="mt-4 space-y-2 text-gray-700">
-                        {service.details.map((detail, index) => (
-                          <li key={index} className="flex items-start">
-                            <svg className="flex-shrink-0 h-6 w-6 text-secondary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                            <span>{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  </div>
+                  <div className="mt-6">
+                      <button 
+                        onClick={() => handleLearnMore(service)} 
+                        className="font-semibold text-secondary hover:text-green-400 transition-colors duration-300"
+                      >
+                          Learn More &rarr;
+                      </button>
                   </div>
               </div>
             ))}
@@ -118,7 +162,6 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
       
-      {/* Our Approach Section */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -158,7 +201,6 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
       <section className="bg-dark-gray">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
               <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
@@ -173,6 +215,24 @@ const ServicesPage: React.FC = () => {
               </div>
           </div>
       </section>
+
+      {selectedService && (
+        <Modal isOpen={!!selectedService} onClose={closeModal}>
+          <div className="p-2">
+            <h3 className="text-2xl font-bold text-primary mb-4">{selectedService.title}</h3>
+            <p className="text-lg text-gray-700 mb-6">{selectedService.description}</p>
+            <h4 className="text-xl font-semibold text-dark-gray mb-3">Key Areas of Focus:</h4>
+            <ul className="space-y-2 text-gray-600">
+              {selectedService.details.map((detail, index) => (
+                <li key={index} className="flex items-start">
+                  <svg className="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };

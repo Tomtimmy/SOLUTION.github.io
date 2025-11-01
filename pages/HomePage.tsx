@@ -249,17 +249,21 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-light-gray">
+      <section className="bg-dark-gray">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-              <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">
+              <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
                   Ready to Unlock Your Organization's Potential?
               </h2>
-              <p className="mt-4 text-lg text-dark-gray max-w-2xl mx-auto">
+              <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
                   Let's discuss how our tailored consulting services can help you navigate your challenges and achieve measurable success.
               </p>
               <div className="mt-8 flex justify-center gap-4">
-                  <Button to="/contact" variant="primary">Book an Appointment</Button>
-                  <Button to="/services" variant="secondary">Explore Our Services</Button>
+                  <Link to="/contact" className="inline-block px-8 py-3 rounded-md font-semibold text-center transition-transform transform hover:scale-105 duration-300 shadow-lg bg-secondary text-white hover:bg-green-600">
+                    Book an Appointment
+                  </Link>
+                   <Link to="/services" className="inline-block px-8 py-3 rounded-md font-semibold text-center transition-transform transform hover:scale-105 duration-300 shadow-lg bg-transparent border-2 border-white text-white hover:bg-white hover:text-dark-gray">
+                    Explore Our Services
+                  </Link>
               </div>
           </div>
       </section>
