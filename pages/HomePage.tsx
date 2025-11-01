@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
 
@@ -15,16 +16,19 @@ const coreServices = [
         title: 'Project Management',
         description: 'End-to-end support to ensure your projects deliver on time and on budget.',
         icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>,
+        link: '/services#project-management',
     },
     {
         title: 'Data Analytics',
         description: 'Simplifying complex data into clear insights that drive smarter decisions.',
         icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
+        link: '/services#data-analytics-business-intelligence',
     },
     {
         title: 'Strategy & Process',
         description: 'Designing agile strategies and frameworks that boost efficiency.',
         icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
+        link: '/services#strategy-process-improvement',
     }
 ];
 
@@ -163,9 +167,9 @@ const HomePage: React.FC = () => {
                         <h3 className="text-xl font-bold">{service.title}</h3>
                         <p className="mt-2 text-gray-400 flex-grow">{service.description}</p>
                          <div className="mt-6">
-                            <a href="#/services" className="font-semibold text-secondary hover:text-green-400">
+                            <Link to={service.link} className="font-semibold text-secondary hover:text-green-400">
                                 Learn More &rarr;
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 ))}

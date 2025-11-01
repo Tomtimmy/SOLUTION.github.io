@@ -11,12 +11,25 @@ import ContactPage from './pages/ContactPage';
 import CaseStudyDetailPage from './pages/CaseStudyDetailPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 
-const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
+const ScrollHandler: React.FC = () => {
+  const { pathname, hash } = useLocation();
 
   React.useEffect(() => {
+    // If there's a hash, scroll to it
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        // A small delay can help ensure the element is painted before scrolling
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        return;
+      }
+    }
+    // Otherwise, scroll to top
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 };
@@ -24,7 +37,7 @@ const ScrollToTop: React.FC = () => {
 const App: React.FC = () => {
   return (
     <HashRouter>
-      <ScrollToTop />
+      <ScrollHandler />
       <div className="flex flex-col min-h-screen font-sans text-dark-gray">
         <Header />
         <main className="flex-grow">

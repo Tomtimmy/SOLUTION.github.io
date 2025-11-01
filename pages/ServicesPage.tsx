@@ -72,6 +72,14 @@ const serviceSlides = [
   }
 ];
 
+// Helper function to create a URL-friendly slug
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/ & /g, '-')
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '');
+
 
 const ServicesPage: React.FC = () => {
   return (
@@ -88,7 +96,7 @@ const ServicesPage: React.FC = () => {
           </div>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {services.map(service => (
-              <div key={service.title} className="bg-white p-8 rounded-lg shadow-lg flex flex-col sm:flex-row gap-8 items-start">
+              <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col sm:flex-row gap-8 items-start scroll-mt-24">
                   <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-gray">
                       {service.icon}
                   </div>
