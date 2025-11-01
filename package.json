@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
+    "predeploy": "vnpm run build"
+    "deploy": "gh-pages -d dist -r https://github.com/Tomtimmy/SOLUTION.github.io.git"
   },
   "dependencies": {
     "react": "^19.2.0",
