@@ -55,40 +55,72 @@ const ContactPage: React.FC = () => {
     subject: '',
     message: '',
   });
-  const [statusMessage, setStatusMessage] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [status, setStatus] = useState<{ type: 'idle' | 'loading' | 'success' | 'error'; message: string }>({ type: 'idle', message: '' });
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData(prevState => ({ ...prevState, [name]: value }));
+    // Clear the error for the field being edited
+    if (errors[name as keyof typeof errors]) {
+      setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
+    }
+  };
+
+  const validateForm = (): boolean => {
+    const newErrors = { name: '', email: '', subject: '', message: '' };
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full Name is required.';
+      isValid = false;
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email Address is required.';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Email Address is invalid.';
+      isValid = false;
+    }
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'Subject is required.';
+      isValid = false;
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required.';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      setStatusMessage('Please fill out all fields before submitting.');
-      setTimeout(() => setStatusMessage(''), 3000);
+    if (!validateForm()) {
+      setStatus({ type: 'error', message: 'Please correct the errors before submitting.' });
+      setTimeout(() => setStatus({ type: 'idle', message: '' }), 3000);
       return;
     }
 
-     if (GOOGLE_SHEET_CONTACT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS') {
-        setStatusMessage('Contact form is not yet configured.');
+    if (GOOGLE_SHEET_CONTACT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS') {
+        setStatus({ type: 'error', message: 'Contact form is not yet configured.' });
         console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS in ContactPage.tsx');
-        setTimeout(() => setStatusMessage(''), 5000);
+        setTimeout(() => setStatus({ type: 'idle', message: '' }), 5000);
         return;
     }
 
-    setIsLoading(true);
-    setStatusMessage('Sending your message...');
+    setStatus({ type: 'loading', message: 'Sending your message...' });
     
     const data = new FormData();
     data.append('timestamp', new Date().toISOString());
@@ -103,19 +135,30 @@ const ContactPage: React.FC = () => {
         });
 
         if (response.ok) {
-            setStatusMessage('Thank you for your message! We will get back to you shortly.');
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setStatus({ type: 'success', message: 'Thank you for your message! We will get back to you shortly.' });
+            setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
         } else {
             const result = await response.json();
-            setStatusMessage(result.message || 'An error occurred. Please try again.');
+            setStatus({ type: 'error', message: result.message || 'An error occurred. Please try again.' });
         }
     } catch (error) {
         console.error('Form submission error:', error);
-        setStatusMessage('An error occurred while sending your message. Please try again later.');
+        setStatus({ type: 'error', message: 'An error occurred while sending your message. Please try again later.' });
     } finally {
-        setIsLoading(false);
-        setTimeout(() => setStatusMessage(''), 5000);
+        setTimeout(() => setStatus({ type: 'idle', message: '' }), 5000);
     }
+  };
+
+  const getStatusColor = () => {
+    switch (status.type) {
+      case 'success': return 'text-green-600';
+      case 'error': return 'text-red-600';
+      default: return 'text-primary';
+    }
+  };
+  
+  const getInputClasses = (fieldName: keyof typeof errors) => {
+    return `mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none ${errors[fieldName] ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-primary focus:border-primary'}`;
   };
 
   return (
@@ -169,7 +212,7 @@ const ContactPage: React.FC = () => {
                 {/* Contact Form */}
                 <div className="bg-white p-8 rounded-lg shadow-lg">
                     <h2 className="text-3xl font-bold text-dark-gray">Send Us a Message</h2>
-                    <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+                    <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
                             <input
@@ -178,10 +221,10 @@ const ContactPage: React.FC = () => {
                                 id="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                disabled={isLoading}
+                                className={getInputClasses('name')}
+                                disabled={status.type === 'loading'}
                             />
+                            {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                         </div>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
@@ -191,10 +234,10 @@ const ContactPage: React.FC = () => {
                                 id="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                disabled={isLoading}
+                                className={getInputClasses('email')}
+                                disabled={status.type === 'loading'}
                             />
+                            {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                         </div>
                          <div>
                             <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
@@ -204,10 +247,10 @@ const ContactPage: React.FC = () => {
                                 id="subject"
                                 value={formData.subject}
                                 onChange={handleChange}
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                disabled={isLoading}
+                                className={getInputClasses('subject')}
+                                disabled={status.type === 'loading'}
                             />
+                            {errors.subject && <p className="mt-1 text-sm text-red-600">{errors.subject}</p>}
                         </div>
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
@@ -217,22 +260,22 @@ const ContactPage: React.FC = () => {
                                 rows={4}
                                 value={formData.message}
                                 onChange={handleChange}
-                                required
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                disabled={isLoading}
+                                className={`${getInputClasses('message')} resize-none`}
+                                disabled={status.type === 'loading'}
                             />
+                            {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
                         </div>
-                        <div>
+                        <div className="pt-2">
                             <button
                                 type="submit"
                                 className="w-full inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-gray-400 disabled:cursor-not-allowed"
-                                disabled={isLoading}
+                                disabled={status.type === 'loading'}
                             >
-                                {isLoading ? 'Sending...' : 'Send Message'}
+                                {status.type === 'loading' ? 'Sending...' : 'Send Message'}
                             </button>
                         </div>
                     </form>
-                    {statusMessage && <p className="mt-4 text-center text-sm text-primary">{statusMessage}</p>}
+                    {status.message && <p className={`mt-4 text-center text-sm ${getStatusColor()}`}>{status.message}</p>}
                 </div>
             </div>
         </div>

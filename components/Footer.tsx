@@ -14,9 +14,15 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-white">
-              C_S Insight
-            </h3>
+            <Link to="/" aria-label="C_S Insight Homepage">
+              {/* TODO: Replace this src with your actual logo image URL */}
+              <img 
+                src="https://via.placeholder.com/150x40.png?text=C_S+Insight" 
+                alt="C_S Insight Logo" 
+                className="h-10 w-auto"
+                style={{ filter: 'brightness(0) invert(1)' }} // Make placeholder logo white for dark background
+              />
+            </Link>
             <p className="mt-4 text-gray-400 max-w-md">
               Transforming complexity into clarity. We help organizations simplify data, strengthen systems, and achieve measurable growth.
             </p>
