@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Button from './Button';
+import LazyImage from './LazyImage';
 
 interface CaseStudyCardProps {
   id: number;
@@ -46,7 +47,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ id, title, description, i
 
   return (
     <article className="bg-light-gray rounded-lg shadow-lg flex flex-col text-left hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
-      <img src={imageUrl} alt={`Visual representation for ${title}`} className="w-full h-56 object-cover" />
+      <LazyImage src={imageUrl} alt={`Visual representation for ${title}`} className="w-full h-56" imageClassName="object-cover" />
       <div className="p-8 flex flex-col flex-grow">
         <div className="flex-grow">
           <h3 className="text-2xl font-bold text-primary mb-4">{title}</h3>

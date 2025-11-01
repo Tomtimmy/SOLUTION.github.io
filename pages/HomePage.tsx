@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
+import LazyImage from '../components/LazyImage';
 
 // IMPORTANT: To connect this to your Google Sheet, create a Google Apps Script Web App.
 // 1. Create a new Google Sheet.
@@ -225,7 +226,7 @@ const HomePage: React.FC = () => {
                               </div>
                           </div>
                           <div className={`order-2 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-                                <img src={item.imageUrl} alt={item.title} className="rounded-lg shadow-xl"/>
+                                <LazyImage src={item.imageUrl} alt={item.title} className="rounded-lg shadow-xl aspect-[4/3]" imageClassName="rounded-lg" />
                           </div>
                       </div>
                   ))}

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { blogPosts } from '../data/blogPosts';
+import LazyImage from '../components/LazyImage';
 
 const BlogPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -37,7 +38,7 @@ const BlogPage: React.FC = () => {
             key={post.id}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
           >
-            <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover" />
+            <LazyImage src={post.imageUrl} alt={post.title} className="w-full h-full" imageClassName="object-cover" />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center text-white p-4 max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-extrabold">{post.title}</h1>
@@ -98,7 +99,7 @@ const BlogPage: React.FC = () => {
             {filteredPosts.length > 0 ? (
               filteredPosts.map((post) => (
                 <div key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300">
-                  <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover"/>
+                  <LazyImage src={post.imageUrl} alt={post.title} className="w-full h-48" imageClassName="object-cover"/>
                   <div className="p-6 flex-grow flex flex-col">
                     <div className="flex-grow">
                         <p className="text-sm font-semibold text-secondary uppercase">{post.category}</p>

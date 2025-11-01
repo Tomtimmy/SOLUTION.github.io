@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
 import Modal from '../components/Modal';
+import LazyImage from '../components/LazyImage';
 
 // Define a type for our service objects for better type safety
 interface Service {
@@ -166,7 +167,7 @@ const ServicesPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="https://via.placeholder.com/800x600.png?text=Our+Approach" alt="Consultants in a meeting" className="rounded-lg shadow-xl"/>
+                    <LazyImage src="https://via.placeholder.com/800x600.png?text=Our+Approach" alt="Consultants in a meeting" className="rounded-lg shadow-xl aspect-[4/3]" imageClassName="rounded-lg" />
                 </div>
                 <div>
                     <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Collaborative Approach</h2>

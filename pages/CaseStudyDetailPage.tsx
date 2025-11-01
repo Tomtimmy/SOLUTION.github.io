@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { caseStudies } from './CaseStudiesPage';
+import LazyImage from '../components/LazyImage';
 
 const CaseStudyDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -31,7 +32,13 @@ const CaseStudyDetailPage: React.FC = () => {
           <h1 className="text-4xl font-extrabold text-primary sm:text-5xl leading-tight">{study.title}</h1>
         </header>
         
-        <img src={study.imageUrl} alt={`Visual for ${study.title}`} className="mt-8 w-full rounded-lg shadow-lg object-cover" style={{ aspectRatio: '16/9' }} />
+        <LazyImage 
+          src={study.imageUrl} 
+          alt={`Visual for ${study.title}`} 
+          className="mt-8 w-full rounded-lg shadow-lg" 
+          style={{ aspectRatio: '16/9' }} 
+          imageClassName="rounded-lg object-cover"
+        />
 
         <div className="mt-12 space-y-10 text-lg text-gray-700 leading-relaxed border-t pt-8">
           <section aria-labelledby="challenge-heading">

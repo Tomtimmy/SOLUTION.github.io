@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../components/Button';
+import LazyImage from '../components/LazyImage';
 
 const coreValues = [
   {
@@ -91,7 +92,7 @@ const AboutPage: React.FC = () => {
                     </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                    <img src="https://via.placeholder.com/800x1000.png?text=Collaborative+Strategy" alt="Team collaborating on a strategy" className="rounded-lg shadow-xl w-full h-full object-cover"/>
+                    <LazyImage src="https://via.placeholder.com/800x1000.png?text=Collaborative+Strategy" alt="Team collaborating on a strategy" className="rounded-lg shadow-xl w-full h-full min-h-[500px]" imageClassName="object-cover rounded-lg"/>
                 </div>
             </div>
         </div>
@@ -107,7 +108,7 @@ const AboutPage: React.FC = () => {
               <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
                   {leadershipTeam.map(leader => (
                       <div key={leader.name} className="bg-white text-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                          <img src={leader.imageUrl} alt={`Photo of ${leader.name}`} className="w-32 h-32 rounded-full mx-auto mb-5 object-cover ring-4 ring-secondary"/>
+                          <LazyImage src={leader.imageUrl} alt={`Photo of ${leader.name}`} className="w-32 h-32 rounded-full mx-auto mb-5 ring-4 ring-secondary" imageClassName="object-cover rounded-full"/>
                           <h3 className="text-xl font-bold text-dark-gray">{leader.name}</h3>
                           <p className="text-md font-semibold text-primary">{leader.title}</p>
                           <p className="mt-3 text-base text-gray-600">{leader.bio}</p>

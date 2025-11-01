@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import LazyImage from './LazyImage';
 
 interface Slide {
   imageUrl: string;
@@ -31,7 +32,12 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
         >
-          <img src={slide.imageUrl} alt={slide.title} className="w-full h-full object-cover" />
+          <LazyImage 
+            src={slide.imageUrl} 
+            alt={slide.title} 
+            className="w-full h-full" 
+            imageClassName="object-cover" 
+          />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center text-white p-4 max-w-3xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">{slide.title}</h1>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { blogPosts } from '../data/blogPosts';
+import LazyImage from '../components/LazyImage';
 
 const BlogDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,7 +24,7 @@ const BlogDetailPage: React.FC = () => {
   return (
     <div className="bg-white">
         <header className="relative">
-            <img src={post.imageUrl} alt={post.title} className="w-full h-96 object-cover"/>
+            <LazyImage src={post.imageUrl} alt={post.title} className="w-full h-96" imageClassName="object-cover"/>
             <div className="absolute inset-0 bg-black bg-opacity-50"/>
             <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white p-4 max-w-3xl">
