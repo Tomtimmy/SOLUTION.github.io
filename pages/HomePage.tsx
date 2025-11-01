@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
 
+// IMPORTANT: To connect this to your Google Sheet, create a Google Apps Script Web App.
+// 1. Create a new Google Sheet.
+// 2. Go to Extensions > Apps Script.
+// 3. Paste the provided script code for handling POST requests.
+// 4. Deploy as a Web App with "Anyone" access.
+// 5. Copy the Web App URL and paste it here.
+const NEWSLETTER_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER';
+
+
 const clientLogos = [
   { name: 'Acme Corp', placeholder: true },
   { name: 'Stark Industries', placeholder: true },
@@ -91,17 +100,49 @@ const homeSlides = [
 const HomePage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && email.includes('@')) {
-      console.log(`Subscribing email: ${email}`);
-      setMessage(`Thank you for subscribing! We've sent a confirmation to ${email}.`);
-      setEmail('');
-      setTimeout(() => setMessage(''), 5000);
-    } else {
+    if (!email || !email.includes('@')) {
       setMessage('Please enter a valid email address.');
       setTimeout(() => setMessage(''), 3000);
+      return;
+    }
+
+    if (NEWSLETTER_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER') {
+        setMessage('Newsletter functionality is not yet configured.');
+        console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER in HomePage.tsx');
+        setTimeout(() => setMessage(''), 5000);
+        return;
+    }
+
+    setIsSubmitting(true);
+    setMessage('Subscribing...');
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('timestamp', new Date().toISOString());
+
+    try {
+        const response = await fetch(NEWSLETTER_SCRIPT_URL, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            setMessage(`Thank you for subscribing! We've sent a confirmation to ${email}.`);
+            setEmail('');
+        } else {
+            const data = await response.json();
+            setMessage(data.message || 'An error occurred. Please try again.');
+        }
+    } catch (error) {
+        console.error('Newsletter submission error:', error);
+        setMessage('An error occurred while subscribing. Please try again later.');
+    } finally {
+        setIsSubmitting(false);
+        setTimeout(() => setMessage(''), 5000);
     }
   };
 
@@ -289,10 +330,15 @@ const HomePage: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-5 py-3 border border-transparent rounded-md placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white text-dark-gray"
                 placeholder="Enter your email"
+                disabled={isSubmitting}
               />
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                <button type="submit" className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-secondary">
-                  Subscribe
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-secondary disabled:bg-gray-400 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 </button>
               </div>
             </form>

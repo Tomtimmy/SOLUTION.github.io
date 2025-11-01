@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
 
+// IMPORTANT: To connect this to your Google Sheet, create a Google Apps Script Web App.
+// 1. Create a new Google Sheet with columns: timestamp, name, email, subject, message.
+// 2. Go to Extensions > Apps Script.
+// 3. Paste the provided script code for handling POST requests.
+// 4. Deploy as a Web App with "Anyone" access.
+// 5. Copy the Web App URL and paste it here.
+const GOOGLE_SHEET_CONTACT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS';
+
+
 const faqs = [
   {
     question: 'What types of organizations do you work with?',
@@ -28,6 +37,7 @@ const ContactPage: React.FC = () => {
     message: '',
   });
   const [statusMessage, setStatusMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
@@ -43,17 +53,49 @@ const ContactPage: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple validation
-    if (formData.name && formData.email && formData.subject && formData.message) {
-      console.log('Form submitted:', formData);
-      setStatusMessage('Thank you for your message! We will get back to you shortly.');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatusMessage(''), 5000);
-    } else {
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       setStatusMessage('Please fill out all fields before submitting.');
       setTimeout(() => setStatusMessage(''), 3000);
+      return;
+    }
+
+     if (GOOGLE_SHEET_CONTACT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS') {
+        setStatusMessage('Contact form is not yet configured.');
+        console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS in ContactPage.tsx');
+        setTimeout(() => setStatusMessage(''), 5000);
+        return;
+    }
+
+    setIsLoading(true);
+    setStatusMessage('Sending your message...');
+    
+    const data = new FormData();
+    data.append('timestamp', new Date().toISOString());
+    Object.entries(formData).forEach(([key, value]) => {
+        data.append(key, value);
+    });
+
+    try {
+        const response = await fetch(GOOGLE_SHEET_CONTACT_URL, {
+            method: 'POST',
+            body: data,
+        });
+
+        if (response.ok) {
+            setStatusMessage('Thank you for your message! We will get back to you shortly.');
+            setFormData({ name: '', email: '', subject: '', message: '' });
+        } else {
+            const result = await response.json();
+            setStatusMessage(result.message || 'An error occurred. Please try again.');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        setStatusMessage('An error occurred while sending your message. Please try again later.');
+    } finally {
+        setIsLoading(false);
+        setTimeout(() => setStatusMessage(''), 5000);
     }
   };
 
@@ -129,6 +171,7 @@ const ContactPage: React.FC = () => {
                                 onChange={handleChange}
                                 required
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                disabled={isLoading}
                             />
                         </div>
                         <div>
@@ -141,6 +184,7 @@ const ContactPage: React.FC = () => {
                                 onChange={handleChange}
                                 required
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                disabled={isLoading}
                             />
                         </div>
                          <div>
@@ -153,6 +197,7 @@ const ContactPage: React.FC = () => {
                                 onChange={handleChange}
                                 required
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                disabled={isLoading}
                             />
                         </div>
                         <div>
@@ -165,14 +210,16 @@ const ContactPage: React.FC = () => {
                                 onChange={handleChange}
                                 required
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                disabled={isLoading}
                             />
                         </div>
                         <div>
                             <button
                                 type="submit"
-                                className="w-full inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                className="w-full inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                disabled={isLoading}
                             >
-                                Send Message
+                                {isLoading ? 'Sending...' : 'Send Message'}
                             </button>
                         </div>
                     </form>
@@ -227,7 +274,7 @@ const ContactPage: React.FC = () => {
               <h2 className="text-3xl font-bold text-dark-gray text-center mb-8">Find Us on the Map</h2>
               <div className="w-full h-[500px] rounded-lg shadow-lg overflow-hidden">
                     <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63424.28189035117!2d3.332308945938814!3d6.602737922442431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9228fa2a3999%3A0x875385ede1d34396!2sIkeja%2C%20Lagos%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1698345123456!5m2!1sen!2sus" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63424.28189035117!2d3.332308945938814!3d6.602737922442431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9228fa2a3999%3A0x875385ede1d34396!2sIkeja%2C%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1698345123456!5m2!1sen!2sus" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
