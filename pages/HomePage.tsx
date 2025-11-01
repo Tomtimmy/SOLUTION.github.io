@@ -10,7 +10,7 @@ import LazyImage from '../components/LazyImage';
 // 3. Paste the provided script code for handling POST requests.
 // 4. Deploy as a Web App with "Anyone" access.
 // 5. Copy the Web App URL and paste it here.
-const NEWSLETTER_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER';
+const NEWSLETTER_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZ14coiHdQpR6eWQGsjdBRTxvQvr8KtK_Cw3Eo0OAoNHQUzzWyDOLN5EZxEwGH3qCI/exec';
 
 
 const clientLogos = [
@@ -111,7 +111,7 @@ const HomePage: React.FC = () => {
       return;
     }
 
-    if (NEWSLETTER_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER') {
+    if (NEWSLETTER_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwZ14coiHdQpR6eWQGsjdBRTxvQvr8KtK_Cw3Eo0OAoNHQUzzWyDOLN5EZxEwGH3qCI/exec') {
         setMessage('Newsletter functionality is not yet configured.');
         console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER in HomePage.tsx');
         setTimeout(() => setMessage(''), 5000);
