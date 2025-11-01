@@ -125,7 +125,8 @@ const ContactPage: React.FC = () => {
     const data = new FormData();
     data.append('timestamp', new Date().toISOString());
     Object.entries(formData).forEach(([key, value]) => {
-        data.append(key, value);
+        data.append(key, String(value));
+
     });
 
     try {
