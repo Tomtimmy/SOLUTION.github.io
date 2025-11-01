@@ -7,7 +7,7 @@ import HeroCarousel from '../components/HeroCarousel';
 // 3. Paste the provided script code for handling POST requests.
 // 4. Deploy as a Web App with "Anyone" access.
 // 5. Copy the Web App URL and paste it here.
-const GOOGLE_SHEET_CONTACT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS';
+const GOOGLE_SHEET_CONTACT_URL = 'https://script.google.com/macros/s/AKfycbx0d7ldhsMZyCVlHAM6QiEq2a50HT3nWmST-FV7RCDdcfCIZYT6yhAwsWCDJEpSrZj12w/exec';
 
 
 const faqs = [
@@ -113,7 +113,7 @@ const ContactPage: React.FC = () => {
       return;
     }
 
-    if (GOOGLE_SHEET_CONTACT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS') {
+    if (GOOGLE_SHEET_CONTACT_URL === 'https://script.google.com/macros/s/AKfycbx0d7ldhsMZyCVlHAM6QiEq2a50HT3nWmST-FV7RCDdcfCIZYT6yhAwsWCDJEpSrZj12w/exec') {
         setStatus({ type: 'error', message: 'Contact form is not yet configured.' });
         console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_CONTACTS in ContactPage.tsx');
         setTimeout(() => setStatus({ type: 'idle', message: '' }), 5000);
@@ -136,7 +136,7 @@ const ContactPage: React.FC = () => {
 
         if (response.ok) {
             setStatus({ type: 'success', message: 'Thank you for your message! We will get back to you shortly.' });
-            setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
+            setFormData({ timestamp: '', name: '', email: '', subject: '', message: '' }); // Reset form
         } else {
             const result = await response.json();
             setStatus({ type: 'error', message: result.message || 'An error occurred. Please try again.' });
