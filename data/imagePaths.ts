@@ -39,12 +39,6 @@ export const imagePaths = {
   portfolioProject6: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   portfolioProject7: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
 
-  // Blog
-  blogPost1: 'https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  blogPost2: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  blogPost3: 'https://images.pexels.com/photos/163784/pcb-printed-circuit-board-it-computer-163784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  blogPost4: 'https://images.pexels.com/photos/3471423/pexels-photo-3471423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-
   // Contact Page
   contactHero1: 'https://images.pexels.com/photos/48148/document-business-graph-chart-48148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
   contactHero2: 'https://images.pexels.com/photos/416405/pexels-photo-416405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
