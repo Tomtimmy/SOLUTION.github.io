@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 // Note: To run this project, you would need to install react-router-dom:
 // npm install react-router-dom
