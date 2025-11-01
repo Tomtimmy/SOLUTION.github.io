@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { imagePaths } from '../data/imagePaths';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -22,9 +23,8 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <Link to="/" aria-label="C_S Insight Homepage">
-              {/* TODO: Replace this src with your actual logo image URL */}
               <img 
-                src="https://via.placeholder.com/150x40.png?text=C_S+Insight" 
+                src={imagePaths.logo} 
                 alt="C_S Insight Logo" 
                 className="h-10 w-auto"
               />

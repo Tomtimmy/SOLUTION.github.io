@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
 import Modal from '../components/Modal';
 import LazyImage from '../components/LazyImage';
+import { imagePaths } from '../data/imagePaths';
 
 // Define a type for our service objects for better type safety
 interface Service {
@@ -89,22 +90,22 @@ const services: Service[] = [
 
 const serviceSlides = [
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Project+Management',
+    imageUrl: imagePaths.servicesHero1,
     title: 'Expert Project Management',
     subtitle: 'Delivering your most critical initiatives on time and within budget.',
   },
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Data+Analytics',
+    imageUrl: imagePaths.servicesHero2,
     title: 'Data Analytics & BI',
     subtitle: 'Transforming your raw data into a powerful strategic asset for growth.',
   },
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Strategy',
+    imageUrl: imagePaths.servicesHero3,
     title: 'Strategy & Process Improvement',
     subtitle: 'Designing agile strategies and streamlined processes for peak efficiency.',
   },
     {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Capacity+Development',
+    imageUrl: imagePaths.servicesHero4,
     title: 'Capacity Development & Training',
     subtitle: 'Empowering your teams with the skills and knowledge they need to excel.',
   }
@@ -167,7 +168,7 @@ const ServicesPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <LazyImage src="https://via.placeholder.com/800x600.png?text=Our+Approach" alt="Consultants in a meeting" className="rounded-lg shadow-xl aspect-[4/3]" imageClassName="rounded-lg" />
+                    <LazyImage src={imagePaths.servicesApproach} alt="Consultants in a meeting" className="rounded-lg shadow-xl aspect-[4/3]" imageClassName="rounded-lg" />
                 </div>
                 <div>
                     <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Collaborative Approach</h2>

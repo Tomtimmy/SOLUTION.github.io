@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../components/Button';
 import LazyImage from '../components/LazyImage';
+import { imagePaths } from '../data/imagePaths';
 
 const coreValues = [
   {
@@ -35,19 +36,19 @@ const leadershipTeam = [
         name: 'John Doe',
         title: 'Founder & Principal Consultant',
         bio: 'With over 20 years of experience, John founded C_S Insight with a passion for helping organizations navigate complex challenges and achieve sustainable growth through data-driven strategies.',
-        imageUrl: 'https://via.placeholder.com/400x400.png?text=John+Doe',
+        imageUrl: imagePaths.aboutTeamJohn,
     },
     {
         name: 'Jane Smith',
         title: 'Head of Strategy & Operations',
         bio: 'Jane is a master of process optimization and strategic planning. She leads our efforts to design and implement frameworks that drive efficiency and align with our clients\' long-term goals.',
-        imageUrl: 'https://via.placeholder.com/400x400.png?text=Jane+Smith',
+        imageUrl: imagePaths.aboutTeamJane,
     },
     {
         name: 'Sam Wilson',
         title: 'Director of Data & Analytics',
         bio: 'Sam leads our analytics team, transforming complex datasets into clear, actionable insights. His expertise in business intelligence empowers our clients to make smarter, more informed decisions.',
-        imageUrl: 'https://via.placeholder.com/400x400.png?text=Sam+Wilson',
+        imageUrl: imagePaths.aboutTeamSam,
     }
 ];
 
@@ -57,7 +58,7 @@ const AboutPage: React.FC = () => {
       {/* Hero Section */}
       <section 
         className="relative h-80 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://via.placeholder.com/1600x500.png?text=Our+Firm')" }}
+        style={{ backgroundImage: `url('${imagePaths.aboutHero}')` }}
       >
         <div className="absolute inset-0 bg-primary bg-opacity-70 flex items-center justify-center">
             <div className="text-center text-white p-4">
@@ -92,7 +93,7 @@ const AboutPage: React.FC = () => {
                     </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                    <LazyImage src="https://via.placeholder.com/800x1000.png?text=Collaborative+Strategy" alt="Team collaborating on a strategy" className="rounded-lg shadow-xl w-full h-full min-h-[500px]" imageClassName="object-cover rounded-lg"/>
+                    <LazyImage src={imagePaths.aboutVision} alt="Team collaborating on a strategy" className="rounded-lg shadow-xl w-full h-full min-h-[500px]" imageClassName="object-cover rounded-lg"/>
                 </div>
             </div>
         </div>

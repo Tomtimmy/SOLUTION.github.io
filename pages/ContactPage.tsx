@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import HeroCarousel from '../components/HeroCarousel';
+import { imagePaths } from '../data/imagePaths';
 
 // IMPORTANT: To connect this to your Google Sheet, create a Google Apps Script Web App.
 // 1. Create a new Google Sheet with columns: timestamp, name, email, subject, message.
@@ -31,17 +32,17 @@ const faqs = [
 
 const contactSlides = [
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=We%27re+Here+to+Help',
+    imageUrl: imagePaths.contactHero1,
     title: 'Get in Touch',
     subtitle: "We're here to help and answer any question you might have.",
   },
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Start+the+Conversation',
+    imageUrl: imagePaths.contactHero2,
     title: 'Let\'s Start the Conversation',
     subtitle: 'Reach out to discuss your challenges and discover how we can drive your success.',
   },
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Book+Your+Consultation',
+    imageUrl: imagePaths.contactHero3,
     title: 'Book Your Consultation',
     subtitle: 'Schedule a free, no-obligation consultation with one of our expert consultants today.',
   },

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { imagePaths } from '../data/imagePaths';
 
 const SocialIcon: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
@@ -15,9 +16,8 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <Link to="/" aria-label="C_S Insight Homepage">
-              {/* TODO: Replace this src with your actual logo image URL */}
               <img 
-                src="https://via.placeholder.com/150x40.png?text=C_S+Insight" 
+                src={imagePaths.footerLogo} 
                 alt="C_S Insight Logo" 
                 className="h-10 w-auto"
                 style={{ filter: 'brightness(0) invert(1)' }} // Make placeholder logo white for dark background

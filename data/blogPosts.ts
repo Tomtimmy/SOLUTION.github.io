@@ -2,7 +2,9 @@
 // The blog page and detail pages will automatically update.
 // Make sure to provide a unique 'id' for each new post.
 // The 'content' field can contain HTML for formatting, like <p>, <strong>, <ul>, etc.
-// For images, you can use a placeholder service like 'https://via.placeholder.com' or your own image URLs.
+// For images, update the URL in the data/imagePaths.ts file.
+
+import { imagePaths } from './imagePaths';
 
 export const blogPosts = [
   {
@@ -11,7 +13,7 @@ export const blogPosts = [
     excerpt: 'Explore the key trends and strategies for effective data management that can propel your business forward.',
     category: 'Data Analytics',
     date: 'October 26, 2023',
-    imageUrl: 'https://via.placeholder.com/800x500.png?text=Data+Management',
+    imageUrl: imagePaths.blogPost1,
     content: `
       <p>In today's digital age, data is the lifeblood of any growing business. However, managing this data effectively presents a significant challenge. As organizations scale, the volume, velocity, and variety of data they collect grow exponentially. This post explores the future of data management and outlines key strategies to turn data from a burden into a strategic asset.</p>
       <p><strong>Key trends shaping data management include:</strong></p>
@@ -29,7 +31,7 @@ export const blogPosts = [
     excerpt: 'A practical guide for leaders looking to navigate the complexities of organizational change and achieve lasting success.',
     category: 'Strategy',
     date: 'October 15, 2023',
-    imageUrl: 'https://via.placeholder.com/800x500.png?text=Business+Transformation',
+    imageUrl: imagePaths.blogPost2,
     content: `
       <p>Business transformation is more than just a buzzword; it's a fundamental shift in how an organization operates to adapt to a changing market. However, 70% of transformation initiatives fail. Here is a five-step guide to help leaders navigate this complex process successfully.</p>
       <ol>
@@ -48,7 +50,7 @@ export const blogPosts = [
     excerpt: 'Discover how strong leadership can build a more agile, efficient, and resilient supply chain in today\'s volatile market.',
     category: 'Supply Chain',
     date: 'September 28, 2023',
-    imageUrl: 'https://via.placeholder.com/800x500.png?text=Supply+Chain+Leadership',
+    imageUrl: imagePaths.blogPost3,
     content: `
       <p>Recent global disruptions have exposed the vulnerabilities of traditional supply chains. In this new era of uncertainty, building a resilient supply chain is a top priority for businesses worldwide. At the heart of this resilience lies strong operational leadership.</p>
       <p>Effective leaders in supply chain management do more than just oversee logistics; they foster a culture of adaptability and proactive risk management. <strong>Here’s how they make a difference:</strong></p>
@@ -66,7 +68,7 @@ export const blogPosts = [
     excerpt: 'A deep dive into the best BI tools on the market and how to choose the right one for your organization.',
     category: 'Data Analytics',
     date: 'September 10, 2023',
-    imageUrl: 'https://via.placeholder.com/800x500.png?text=BI+Tools',
+    imageUrl: imagePaths.blogPost4,
     content: `
       <p>Business Intelligence (BI) tools are powerful platforms that transform raw data into actionable insights. They enable organizations to visualize trends, track performance, and make data-driven decisions. But with so many options available, how do you choose the right one?</p>
       <p>When evaluating BI tools, consider the following factors:</p>

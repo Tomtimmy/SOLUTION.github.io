@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
 import LazyImage from '../components/LazyImage';
+import { imagePaths } from '../data/imagePaths';
 
 // IMPORTANT: To connect this to your Google Sheet, create a Google Apps Script Web App.
 // 1. Create a new Google Sheet.
@@ -25,12 +26,12 @@ const consultingExpertise = [
     {
         title: 'Strategic Consulting',
         description: 'We partner with you to develop clear, data-driven strategies that align with your long-term vision. Our collaborative approach ensures that the solutions we design are not only innovative but also practical and sustainable for your organization.',
-        imageUrl: 'https://via.placeholder.com/800x600.png?text=Strategic+Planning',
+        imageUrl: imagePaths.homeExpertiseStrategic,
     },
     {
         title: 'Operational Consulting',
         description: 'Our team excels at identifying inefficiencies and optimizing your core business processes. From supply chain management to internal workflows, we help you reduce costs, improve productivity, and enhance the quality of your service delivery.',
-        imageUrl: 'https://via.placeholder.com/800x600.png?text=Operational+Efficiency',
+        imageUrl: imagePaths.homeExpertiseOperational,
     }
 ];
 
@@ -75,21 +76,21 @@ const testimonials = [
 
 const homeSlides = [
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Consulting+Excellence',
+    imageUrl: imagePaths.homeHero1,
     title: 'Transforming Complexity into Clarity',
     subtitle: 'We help organizations simplify data, strengthen systems, and achieve measurable growth.',
     link: '/about',
     buttonText: 'Learn More About Us'
   },
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Data-Driven+Results',
+    imageUrl: imagePaths.homeHero2,
     title: 'Actionable Insight, Measurable Impact',
     subtitle: 'From data analytics to process improvement, our solutions are tailored to deliver tangible results.',
     link: '/services',
     buttonText: 'Explore Our Services'
   },
   {
-    imageUrl: 'https://via.placeholder.com/1600x600.png?text=Strategic+Partnerships',
+    imageUrl: imagePaths.homeHero3,
     title: 'Your Partner in Growth and Efficiency',
     subtitle: 'Whether you’re a startup or an established enterprise, we provide the expertise to drive you forward.',
     link: '/contact',
