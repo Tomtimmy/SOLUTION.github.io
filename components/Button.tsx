@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,8 +7,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   children: React.ReactNode;
   className?: string;
-  // FIX: Added optional onClick prop to allow passing click handlers to the Link component.
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({ to, variant = 'primary', children, className = '', onClick }) => {

@@ -21,7 +21,6 @@ const Footer: React.FC = () => {
                 src={imagePaths.footerLogo} 
                 alt="C_S Insight and Solution Firm Logo" 
                 className="h-16 w-auto"
-                style={{ filter: 'brightness(0) invert(1)' }} // Make placeholder logo white for dark background
               />
             </Link>
             <p className="mt-4 text-gray-400 max-w-md">

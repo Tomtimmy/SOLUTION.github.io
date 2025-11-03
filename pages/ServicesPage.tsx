@@ -240,7 +240,7 @@ const ServicesPage: React.FC = () => {
               ))}
             </ul>
             <div className="mt-8 text-center">
-              <Button to="/contact" variant="primary" onClick={closeModal}>
+              <Button to="/contact" variant="primary">
                 Request a Consultation
               </Button>
             </div>

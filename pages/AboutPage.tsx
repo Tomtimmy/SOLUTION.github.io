@@ -1,14 +1,16 @@
+
 import React from 'react';
 import Button from '../components/Button';
 import LazyImage from '../components/LazyImage';
 import { imagePaths } from '../data/imagePaths';
 import FadeInSection from '../components/FadeInSection';
+import TeamCarousel from '../components/TeamCarousel';
 
 const coreValues = [
   {
     name: 'Integrity',
     description: 'We build trust through transparency and consistency.',
-    icon: <svg xmlns="http://www.w.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Integrity Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Integrity Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
   },
   {
     name: 'Service',
@@ -18,7 +20,7 @@ const coreValues = [
   {
     name: 'Innovation',
     description: 'We thrive on new ideas that deliver practical solutions.',
-    icon: <svg xmlns="http://www.w.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Innovation Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Innovation Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
   },
   {
     name: 'Collaboration',
@@ -51,6 +53,29 @@ const leadershipTeam = [
         bio: 'Sam leads our analytics team, transforming complex datasets into clear, actionable insights. His expertise in business intelligence empowers our clients to make smarter, more informed decisions.',
         imageUrl: imagePaths.aboutTeamSam,
     }
+];
+
+const historyMilestones = [
+  {
+    year: '2018',
+    title: 'The Vision',
+    description: 'C_S Insight and Solution Firm was founded with a mission to bridge the gap between complex data and actionable business strategy.'
+  },
+  {
+    year: '2020',
+    title: 'First Major Partnership',
+    description: 'We partnered with a leading manufacturing firm, successfully redesigning their supply chain and achieving a 30% reduction in operational costs.'
+  },
+  {
+    year: '2022',
+    title: 'Expanding Our Services',
+    description: 'Launched our dedicated Capacity Development & Training service line to empower client teams with sustainable skills.'
+  },
+  {
+    year: '2024',
+    title: 'A Growing Team',
+    description: 'Our team grew to over 15 dedicated consultants, expanding our expertise across multiple sectors including finance, retail, and public services.'
+  }
 ];
 
 const AboutPage: React.FC = () => {
@@ -100,28 +125,52 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Meet Our Leadership */}
+      {/* Our History Section */}
       <section className="py-16 sm:py-24 bg-light-bg">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our History</h2>
+            <p className="mt-4 text-lg text-text-dark">A journey of growth, partnership, and impact.</p>
+          </div>
+          <div className="mt-16 relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-primary/30" aria-hidden="true"></div>
+            
+            <div className="space-y-16">
+              {historyMilestones.map((item, index) => (
+                <FadeInSection key={index} className="flex odd:flex-row-reverse items-center justify-between w-full">
+                  <div className="w-[calc(50%-2rem)]">
+                    <div className={`p-6 bg-white rounded-lg shadow-lg text-center ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
+                      <h3 className="text-2xl font-bold text-primary">{item.year} - {item.title}</h3>
+                      <p className="mt-2 text-text-dark">{item.description}</p>
+                    </div>
+                  </div>
+                  <div className="z-10 flex-shrink-0 w-10 h-10 bg-secondary rounded-full flex items-center justify-center ring-8 ring-white">
+                     <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                  </div>
+                   <div className="w-[calc(50%-2rem)]"></div>
+                </FadeInSection>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Leadership */}
+      <section className="py-16 sm:py-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto">
                   <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Meet Our Leadership</h2>
                   <p className="mt-4 text-lg text-text-dark">The experienced team dedicated to your success.</p>
               </div>
-              <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-                  {leadershipTeam.map(leader => (
-                      <div key={leader.name} className="bg-white text-center p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                          <LazyImage src={leader.imageUrl} alt={`Photo of ${leader.name}`} className="w-32 h-32 rounded-full mx-auto mb-5 ring-4 ring-secondary" imageClassName="object-cover rounded-full"/>
-                          <h3 className="text-xl font-bold text-text-dark">{leader.name}</h3>
-                          <p className="text-md font-semibold text-primary">{leader.title}</p>
-                          <p className="mt-3 text-base text-text-dark">{leader.bio}</p>
-                      </div>
-                  ))}
+              <div className="mt-16">
+                <TeamCarousel teamMembers={leadershipTeam} />
               </div>
           </div>
       </section>
 
       {/* Why Partner with C_S Insight? Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-light-bg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Why Partner with C_S Insight?</h2>
@@ -158,7 +207,7 @@ const AboutPage: React.FC = () => {
 
 
       {/* Core Values Section */}
-      <section className="py-16 sm:py-24 bg-light-bg">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl font-bold text-text-dark sm:text-4xl">The Principles That Guide Us</h2>
@@ -166,7 +215,7 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
                 {coreValues.map((value, index) => (
-                <div key={value.name} className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300">
+                <div key={value.name} className="text-center p-6 bg-light-bg rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300">
                     <FadeInSection delay={index * 100}>
                       <div className="relative group flex justify-center items-center mb-4">
                         {value.icon}
