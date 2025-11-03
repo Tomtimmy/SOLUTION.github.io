@@ -3,8 +3,8 @@
 
 export const imagePaths = {
   // General
-  logo: 'https://images.pexels.com/photos/20422325/pexels-photo-20422325/free-photo-of-a-logo-for-a-company-that-is-in-the-shape-of-a-pyramid.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-  footerLogo: 'https://images.pexels.com/photos/20422325/pexels-photo-20422325/free-photo-of-a-logo-for-a-company-that-is-in-the-shape-of-a-pyramid.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  logo: 'https://i.ibb.co/yBbfXjSS/INSIGHTS-SOLUTIONS.png',
+  footerLogo: 'https://i.ibb.co/yBbfXjSS/INSIGHTS-SOLUTIONS.png',
 
   // Home Page
   homeHero1: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',

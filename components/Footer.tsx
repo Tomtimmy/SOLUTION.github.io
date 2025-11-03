@@ -18,8 +18,8 @@ const Footer: React.FC = () => {
             <Link to="/" aria-label="C_S Insight Homepage">
               <img 
                 src={imagePaths.footerLogo} 
-                alt="C_S Insight Logo" 
-                className="h-10 w-auto"
+                alt="C_S Insight and Solution Firm Logo" 
+                className="h-16 w-auto"
                 style={{ filter: 'brightness(0) invert(1)' }} // Make placeholder logo white for dark background
               />
             </Link>

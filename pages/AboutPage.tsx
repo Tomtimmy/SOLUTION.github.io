@@ -119,9 +119,42 @@ const AboutPage: React.FC = () => {
           </div>
       </section>
 
+      {/* Why Partner with C_S Insight? Section */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto">
+                <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Why Partner with C_S Insight?</h2>
+                <p className="mt-4 text-lg text-text-dark">We deliver more than just reports; we provide clarity, strategy, and results that matter.</p>
+            </div>
+            <div className="mt-16 grid gap-10 md:grid-cols-3">
+                <div className="text-center">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-text-dark">Data-Driven Strategy</h3>
+                    <p className="mt-2 text-text-dark">Our solutions are built on a foundation of rigorous data analysis, ensuring every decision is informed and impactful.</p>
+                </div>
+                 <div className="text-center">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
+                       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm-9 3a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-text-dark">Tailored Solutions</h3>
+                    <p className="mt-2 text-text-dark">We understand that every organization is unique. We craft bespoke strategies that align perfectly with your specific goals.</p>
+                </div>
+                 <div className="text-center">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
+                       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-text-dark">Measurable Impact</h3>
+                    <p className="mt-2 text-text-dark">Our success is measured by yours. We focus on delivering tangible outcomes that improve efficiency and drive growth.</p>
+                </div>
+            </div>
+        </div>
+      </section>
+
 
       {/* Core Values Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-light-bg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl font-bold text-text-dark sm:text-4xl">The Principles That Guide Us</h2>
