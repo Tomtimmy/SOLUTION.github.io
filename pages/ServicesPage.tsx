@@ -4,6 +4,7 @@ import HeroCarousel from '../components/HeroCarousel';
 import Modal from '../components/Modal';
 import LazyImage from '../components/LazyImage';
 import { imagePaths } from '../data/imagePaths';
+import FadeInSection from '../components/FadeInSection';
 
 // Define a type for our service objects for better type safety
 interface Service {
@@ -136,70 +137,74 @@ const ServicesPage: React.FC = () => {
 
       <section className="py-16 sm:py-24 bg-light-bg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <FadeInSection className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">What We Do</h2>
               <p className="mt-4 text-lg text-text-dark">We partner with you to transform complexity into clarity, providing expert guidance across our core service areas.</p>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {services.map(service => (
-              <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-start scroll-mt-24">
-                  <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-bg mb-4">
-                      {service.icon}
-                  </div>
-                  <div className="flex-grow">
-                      <h3 className="text-2xl font-bold text-text-dark">{service.title}</h3>
-                      <p className="mt-2 text-text-dark leading-relaxed">{service.description}</p>
-                  </div>
-                  <div className="mt-6">
-                      <button 
-                        onClick={() => handleLearnMore(service)} 
-                        className="font-semibold text-secondary hover:text-secondary-hover transition-colors duration-300"
-                      >
-                          Learn More &rarr;
-                      </button>
-                  </div>
-              </div>
-            ))}
-          </div>
+          </FadeInSection>
+          <FadeInSection>
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+              {services.map(service => (
+                <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-start scroll-mt-24">
+                    <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-bg mb-4">
+                        {service.icon}
+                    </div>
+                    <div className="flex-grow">
+                        <h3 className="text-2xl font-bold text-text-dark">{service.title}</h3>
+                        <p className="mt-2 text-text-dark leading-relaxed">{service.description}</p>
+                    </div>
+                    <div className="mt-6">
+                        <button 
+                          onClick={() => handleLearnMore(service)} 
+                          className="font-semibold text-secondary hover:text-secondary-hover transition-colors duration-300"
+                        >
+                            Learn More &rarr;
+                        </button>
+                    </div>
+                </div>
+              ))}
+            </div>
+          </FadeInSection>
         </div>
       </section>
       
       <section className="py-16 sm:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <LazyImage src={imagePaths.servicesApproach} alt="Consultants in a meeting" className="rounded-lg shadow-xl aspect-[4/3]" imageClassName="rounded-lg" />
-                </div>
-                <div>
-                    <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Collaborative Approach</h2>
-                    <p className="mt-4 text-lg text-text-dark leading-relaxed">
-                        We believe in partnership. Our process is built on a foundation of collaboration to ensure our solutions are not only effective but also deeply integrated with your organizational culture.
-                    </p>
-                    <div className="mt-6 space-y-4">
-                        <div className="flex items-start">
-                             <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">1</div>
-                             <div>
-                                <h3 className="text-xl font-bold text-text-dark">Discover & Analyze</h3>
-                                <p className="mt-1 text-text-dark">We begin by listening, immersing ourselves in your challenges to understand your unique context and goals.</p>
-                             </div>
-                        </div>
-                        <div className="flex items-start">
-                            <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">2</div>
-                             <div>
-                                <h3 className="text-xl font-bold text-text-dark">Design & Strategize</h3>
-                                <p className="mt-1 text-text-dark">Using data-driven insights, we co-create tailored strategies and actionable roadmaps for success.</p>
-                             </div>
-                        </div>
-                         <div className="flex items-start">
-                            <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">3</div>
-                             <div>
-                                <h3 className="text-xl font-bold text-text-dark">Implement & Empower</h3>
-                                <p className="mt-1 text-text-dark">We work alongside your team to implement solutions, providing the support and training needed for long-term adoption.</p>
-                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <FadeInSection>
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                  <div>
+                      <LazyImage src={imagePaths.servicesApproach} alt="Consultants in a meeting" className="rounded-lg shadow-xl aspect-[4/3]" imageClassName="rounded-lg" />
+                  </div>
+                  <div>
+                      <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Collaborative Approach</h2>
+                      <p className="mt-4 text-lg text-text-dark leading-relaxed">
+                          We believe in partnership. Our process is built on a foundation of collaboration to ensure our solutions are not only effective but also deeply integrated with your organizational culture.
+                      </p>
+                      <div className="mt-6 space-y-4">
+                          <div className="flex items-start">
+                              <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">1</div>
+                              <div>
+                                  <h3 className="text-xl font-bold text-text-dark">Discover & Analyze</h3>
+                                  <p className="mt-1 text-text-dark">We begin by listening, immersing ourselves in your challenges to understand your unique context and goals.</p>
+                              </div>
+                          </div>
+                          <div className="flex items-start">
+                              <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">2</div>
+                              <div>
+                                  <h3 className="text-xl font-bold text-text-dark">Design & Strategize</h3>
+                                  <p className="mt-1 text-text-dark">Using data-driven insights, we co-create tailored strategies and actionable roadmaps for success.</p>
+                              </div>
+                          </div>
+                          <div className="flex items-start">
+                              <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">3</div>
+                              <div>
+                                  <h3 className="text-xl font-bold text-text-dark">Implement & Empower</h3>
+                                  <p className="mt-1 text-text-dark">We work alongside your team to implement solutions, providing the support and training needed for long-term adoption.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </FadeInSection>
         </div>
       </section>
 

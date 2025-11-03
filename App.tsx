@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage';
 import CaseStudyDetailPage from './pages/CaseStudyDetailPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 const ScrollHandler: React.FC = () => {
   const { pathname, hash } = useLocation();
@@ -23,7 +24,8 @@ const ScrollHandler: React.FC = () => {
       if (element) {
         // A small delay can help ensure the element is painted before scrolling
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
+          // The browser's native smooth scrolling and offset are handled by CSS in index.html
+          element.scrollIntoView();
         }, 100);
         return;
       }
@@ -55,6 +57,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <ScrollToTopButton />
       </div>
     </HashRouter>
   );

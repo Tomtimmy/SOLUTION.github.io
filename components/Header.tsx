@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { imagePaths } from '../data/imagePaths';
 
@@ -13,12 +13,24 @@ const navLinks = [
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   const activeLinkClass = 'text-secondary font-semibold';
   const inactiveLinkClass = 'hover:text-primary transition-colors duration-300';
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-md'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           <div className="flex-shrink-0">
