@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
@@ -11,7 +12,7 @@ import { imagePaths } from '../data/imagePaths';
 // 3. Paste the provided script code for handling POST requests.
 // 4. Deploy as a Web App with "Anyone" access.
 // 5. Copy the Web App URL and paste it here.
-const NEWSLETTER_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZ14coiHdQpR6eWQGsjdBRTxvQvr8KtK_Cw3Eo0OAoNHQUzzWyDOLN5EZxEwGH3qCI/exec';
+const NEWSLETTER_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB2oktCEY7edhwXSvn_qn6EgkIbhW1n_Gp1zA0JPx5MeFvUuuxhlR_H1oqARc8ul5LKA/exec';
 
 
 const clientLogos = [
@@ -110,15 +111,6 @@ const HomePage: React.FC = () => {
       setMessage('Please enter a valid email address.');
       setTimeout(() => setMessage(''), 3000);
       return;
-    }
-
-    // FIX: This check is redundant because the URL constant is already set.
-    // This was causing a TypeScript error because the two literal strings can never be equal.
-    if (NEWSLETTER_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwZ14coiHdQpR6eWQGsjdBRTxvQvr8KtK_Cw3Eo0OAoNHQUzzWyDOLN5EZxEwGH3qCI/exec' && NEWSLETTER_SCRIPT_URL.includes('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL')) {
-        setMessage('Newsletter functionality is not yet configured.');
-        console.error('Please replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_FOR_NEWSLETTER in HomePage.tsx');
-        setTimeout(() => setMessage(''), 5000);
-        return;
     }
 
     setIsSubmitting(true);

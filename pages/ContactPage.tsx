@@ -8,7 +8,7 @@ import { imagePaths } from '../data/imagePaths';
 // 3. Paste the provided script code for handling POST requests.
 // 4. Deploy as a Web App with "Anyone" access.
 // 5. Copy the Web App URL and paste it here.
-const GOOGLE_SHEET_CONTACT_URL = 'https://script.google.com/macros/s/AKfycbx0d7ldhsMZyCVlHAM6QiEq2a50HT3nWmST-FV7RCDdcfCIZYT6yhAwsWCDJEpSrZj12w/exec';
+const GOOGLE_SHEET_CONTACT_URL = 'https://script.google.com/macros/s/AKfycbwql_2UMk8PBw-j-VQeeDA2Gn5G0S2r8XqnIYLOG9pbynnklvCmmePNHmFeyLqSfcZN/exec';
 
 
 const faqs = [
