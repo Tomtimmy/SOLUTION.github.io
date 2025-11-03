@@ -32,13 +32,13 @@ const Header: React.FC = () => {
   return (
     <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-md'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-28">
           <div className="flex-shrink-0">
             <Link to="/" aria-label="C_S Insight Homepage">
               <img 
                 src={imagePaths.logo} 
                 alt="C_S Insight and Solution Firm Logo" 
-                className="h-20 w-auto"
+                className="h-24 w-auto"
               />
             </Link>
           </div>
