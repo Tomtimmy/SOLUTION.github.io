@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -12,8 +11,6 @@ import ContactPage from './pages/ContactPage';
 import CaseStudyDetailPage from './pages/CaseStudyDetailPage';
 import BlogDetailPage from './pages/BlogDetailPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-// FIX: Add route for CreatePostPage
-import CreatePostPage from './pages/CreatePostPage';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
 const ScrollHandler: React.FC = () => {
@@ -55,8 +52,6 @@ const App: React.FC = () => {
             <Route path="/portfolio/:id" element={<CaseStudyDetailPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:id" element={<BlogDetailPage />} />
-            {/* FIX: Add route for CreatePostPage */}
-            <Route path="/blog/create" element={<CreatePostPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           </Routes>
