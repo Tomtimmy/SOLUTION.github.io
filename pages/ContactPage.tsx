@@ -180,8 +180,7 @@ const ContactPage: React.FC = () => {
                             </div>
                             <div className="ml-4">
                                 <h3 className="text-xl font-semibold text-text-dark">Our Office</h3>
-                                <p className="mt-1 text-text-dark">Ikeja, Lagos</p>
-                                <p className="text-text-dark">Nigeria</p>
+                                <p className="mt-1 text-text-dark">No. 5, Eta Avenue, Oregun Ikeja.</p>
                             </div>
                         </div>
                         <div className="flex items-start">
@@ -190,8 +189,7 @@ const ContactPage: React.FC = () => {
                             </div>
                             <div className="ml-4">
                                 <h3 className="text-xl font-semibold text-text-dark">Email Us</h3>
-                                <p className="mt-1 text-text-dark">General: contact@csinsight.com</p>
-                                <p className="mt-1 text-text-dark">Projects: consult@csinsight.com</p>
+                                <a href="mailto:csinsightssolution@gmail.com" className="mt-1 text-text-dark hover:text-primary transition-colors">csinsightssolution@gmail.com</a>
                             </div>
                         </div>
                         <div className="flex items-start">
@@ -200,7 +198,7 @@ const ContactPage: React.FC = () => {
                             </div>
                             <div className="ml-4">
                                 <h3 className="text-xl font-semibold text-text-dark">Call Us</h3>
-                                <p className="mt-1 text-text-dark">(123) 456-7890</p>
+                                <a href="tel:+2348132847661" className="mt-1 text-text-dark hover:text-primary transition-colors">+234 813 284 7661</a>
                             </div>
                         </div>
                     </div>
