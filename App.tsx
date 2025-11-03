@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -41,7 +42,7 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollHandler />
-      <div className="flex flex-col min-h-screen font-sans text-text-dark">
+      <div className="flex flex-col min-h-screen font-sans text-text-dark dark:text-gray-200 bg-white dark:bg-gray-900">
         <Header />
         <main className="flex-grow">
           <Routes>

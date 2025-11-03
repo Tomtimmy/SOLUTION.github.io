@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { blogPosts } from '../data/blogPosts';
@@ -50,43 +51,45 @@ const CreatePostPage: React.FC = () => {
       navigate('/blog');
     }, 2500);
   };
+  
+  const inputClasses = "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary";
 
   return (
-    <div className="bg-light-bg py-16 sm:py-24">
+    <div className="bg-light-bg dark:bg-gray-900 py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-        <h1 className="text-4xl font-extrabold text-primary sm:text-5xl text-center mb-8">Create New Blog Post</h1>
-        <div className="bg-white p-8 rounded-lg shadow-lg">
+        <h1 className="text-4xl font-extrabold text-primary dark:text-white sm:text-5xl text-center mb-8">Create New Blog Post</h1>
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
-              <input type="text" name="title" id="title" value={formData.title} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" />
+              <label htmlFor="title" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
+              <input type="text" name="title" id="title" value={formData.title} onChange={handleChange} required className={inputClasses} />
             </div>
              <div>
-              <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700">Excerpt</label>
-              <textarea name="excerpt" id="excerpt" rows={3} value={formData.excerpt} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+              <label htmlFor="excerpt" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Excerpt</label>
+              <textarea name="excerpt" id="excerpt" rows={3} value={formData.excerpt} onChange={handleChange} required className={inputClasses}></textarea>
             </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <div>
-                  <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
-                   <select name="category" id="category" value={formData.category} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                  <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Category</label>
+                   <select name="category" id="category" value={formData.category} onChange={handleChange} className={inputClasses}>
                     {categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
                     <option value="New Category">-- Add New Category --</option>
                   </select>
                 </div>
                  <div>
-                  <label htmlFor="date" className="block text-sm font-medium text-gray-700">Date</label>
-                  <input type="date" name="date" id="date" value={formData.date} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" />
+                  <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Date</label>
+                  <input type="date" name="date" id="date" value={formData.date} onChange={handleChange} required className={inputClasses} />
                 </div>
              </div>
              <div>
-              <label htmlFor="imageUrls" className="block text-sm font-medium text-gray-700">Image URLs (comma-separated)</label>
-              <input type="text" name="imageUrls" id="imageUrls" value={formData.imageUrls} onChange={handleChange} required placeholder="https://example.com/main.jpg, https://example.com/secondary.jpg" className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" />
-              <p className="mt-1 text-xs text-gray-500">The first URL will be used as the main featured image.</p>
+              <label htmlFor="imageUrls" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Image URLs (comma-separated)</label>
+              <input type="text" name="imageUrls" id="imageUrls" value={formData.imageUrls} onChange={handleChange} required placeholder="https://example.com/main.jpg, https://example.com/secondary.jpg" className={inputClasses} />
+              <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">The first URL will be used as the main featured image.</p>
             </div>
             <div>
-                <label htmlFor="content" className="block text-sm font-medium text-gray-700">Content (HTML allowed)</label>
-                <textarea name="content" id="content" rows={12} value={formData.content} onChange={handleChange} required className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                <p className="mt-1 text-xs text-gray-500">Use standard HTML tags like `&lt;p&gt;`, `&lt;h2&gt;`, `&lt;ul&gt;` for formatting. Use `[IMAGE-1]`, `[IMAGE-2]` to embed additional images.</p>
+                <label htmlFor="content" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Content (HTML allowed)</label>
+                <textarea name="content" id="content" rows={12} value={formData.content} onChange={handleChange} required className={inputClasses}></textarea>
+                <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">Use standard HTML tags like `&lt;p&gt;`, `&lt;h2&gt;`, `&lt;ul&gt;` for formatting. Use `[IMAGE-1]`, `[IMAGE-2]` to embed additional images.</p>
             </div>
             <div>
               <button 
@@ -98,7 +101,7 @@ const CreatePostPage: React.FC = () => {
               </button>
             </div>
           </form>
-          {status && <p className="mt-4 text-center text-primary font-semibold">{status}</p>}
+          {status && <p className="mt-4 text-center text-primary dark:text-secondary font-semibold">{status}</p>}
         </div>
       </div>
     </div>

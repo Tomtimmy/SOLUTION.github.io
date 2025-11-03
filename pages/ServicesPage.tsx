@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Button from '../components/Button';
 import HeroCarousel from '../components/HeroCarousel';
@@ -25,7 +26,7 @@ const services: Service[] = [
       'Stakeholder communication and management',
       'Quality assurance and control',
     ],
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary dark:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>,
   },
   {
     title: 'Data Analytics & Business Intelligence',
@@ -37,7 +38,7 @@ const services: Service[] = [
       'Data governance and quality assurance frameworks',
       'Customer segmentation and behavior analysis',
     ],
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary dark:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
   },
   {
     title: 'Strategy & Process Improvement',
@@ -49,7 +50,7 @@ const services: Service[] = [
       'Performance metric and KPI development',
       'Organizational design and restructuring',
     ],
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary dark:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>,
   },
   {
     title: 'Capacity Development & Training',
@@ -61,7 +62,7 @@ const services: Service[] = [
       'Continuous improvement and skill-building programs',
       'Train-the-trainer initiatives for sustainable learning',
     ],
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M12 12L4 7l8-4 8 4-8 5z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary dark:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M12 12L4 7l8-4 8 4-8 5z" /></svg>,
   },
   // {
   //   title: 'Supply Chain Optimization',
@@ -132,27 +133,27 @@ const ServicesPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900">
       <HeroCarousel slides={serviceSlides} />
 
-      <section className="py-16 sm:py-24 bg-light-bg">
+      <section className="py-16 sm:py-24 bg-light-bg dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">What We Do</h2>
-              <p className="mt-4 text-lg text-text-dark">We partner with you to transform complexity into clarity, providing expert guidance across our core service areas.</p>
+              <h2 className="text-3xl font-extrabold text-primary dark:text-white sm:text-4xl">What We Do</h2>
+              <p className="mt-4 text-lg text-text-dark dark:text-gray-300">We partner with you to transform complexity into clarity, providing expert guidance across our core service areas.</p>
           </FadeInSection>
           <FadeInSection>
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {services.map(service => (
-                <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-start group scroll-mt-24">
-                    <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-bg mb-4">
+                <div key={service.title} id={slugify(service.title)} className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg flex flex-col items-start group scroll-mt-24">
+                    <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-bg dark:bg-gray-800 mb-4">
                         <div className="transition-transform duration-300 ease-in-out group-hover:scale-110">
                           {service.icon}
                         </div>
                     </div>
                     <div className="flex-grow">
-                        <h3 className="text-2xl font-bold text-text-dark">{service.title}</h3>
-                        <p className="mt-2 text-text-dark leading-relaxed">{service.description}</p>
+                        <h3 className="text-2xl font-bold text-text-dark dark:text-white">{service.title}</h3>
+                        <p className="mt-2 text-text-dark dark:text-gray-300 leading-relaxed">{service.description}</p>
                     </div>
                     <div className="mt-6">
                         <button 
@@ -169,7 +170,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
       
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-16 sm:py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <FadeInSection>
               <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -177,30 +178,30 @@ const ServicesPage: React.FC = () => {
                       <LazyImage src={imagePaths.servicesApproach} alt="Consultants in a meeting" className="rounded-lg shadow-xl aspect-[4/3]" imageClassName="rounded-lg" />
                   </div>
                   <div>
-                      <h2 className="text-3xl font-extrabold text-primary sm:text-4xl">Our Collaborative Approach</h2>
-                      <p className="mt-4 text-lg text-text-dark leading-relaxed">
+                      <h2 className="text-3xl font-extrabold text-primary dark:text-white sm:text-4xl">Our Collaborative Approach</h2>
+                      <p className="mt-4 text-lg text-text-dark dark:text-gray-300 leading-relaxed">
                           We believe in partnership. Our process is built on a foundation of collaboration to ensure our solutions are not only effective but also deeply integrated with your organizational culture.
                       </p>
                       <div className="mt-6 space-y-4">
                           <div className="flex items-start">
                               <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">1</div>
                               <div>
-                                  <h3 className="text-xl font-bold text-text-dark">Discover & Analyze</h3>
-                                  <p className="mt-1 text-text-dark">We begin by listening, immersing ourselves in your challenges to understand your unique context and goals.</p>
+                                  <h3 className="text-xl font-bold text-text-dark dark:text-white">Discover & Analyze</h3>
+                                  <p className="mt-1 text-text-dark dark:text-gray-300">We begin by listening, immersing ourselves in your challenges to understand your unique context and goals.</p>
                               </div>
                           </div>
                           <div className="flex items-start">
                               <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">2</div>
                               <div>
-                                  <h3 className="text-xl font-bold text-text-dark">Design & Strategize</h3>
-                                  <p className="mt-1 text-text-dark">Using data-driven insights, we co-create tailored strategies and actionable roadmaps for success.</p>
+                                  <h3 className="text-xl font-bold text-text-dark dark:text-white">Design & Strategize</h3>
+                                  <p className="mt-1 text-text-dark dark:text-gray-300">Using data-driven insights, we co-create tailored strategies and actionable roadmaps for success.</p>
                               </div>
                           </div>
                           <div className="flex items-start">
                               <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-primary text-white font-bold text-xl mr-4">3</div>
                               <div>
-                                  <h3 className="text-xl font-bold text-text-dark">Implement & Empower</h3>
-                                  <p className="mt-1 text-text-dark">We work alongside your team to implement solutions, providing the support and training needed for long-term adoption.</p>
+                                  <h3 className="text-xl font-bold text-text-dark dark:text-white">Implement & Empower</h3>
+                                  <p className="mt-1 text-text-dark dark:text-gray-300">We work alongside your team to implement solutions, providing the support and training needed for long-term adoption.</p>
                               </div>
                           </div>
                       </div>
@@ -210,7 +211,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-dark-bg">
+      <section className="bg-dark-bg dark:bg-gray-950">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
               <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
                   Ready to Drive Real Results?
@@ -228,10 +229,10 @@ const ServicesPage: React.FC = () => {
       {selectedService && (
         <Modal isOpen={!!selectedService} onClose={closeModal}>
           <div className="p-2">
-            <h3 className="text-2xl font-bold text-primary mb-4">{selectedService.title}</h3>
-            <p className="text-lg text-text-dark mb-6">{selectedService.description}</p>
-            <h4 className="text-xl font-semibold text-text-dark mb-3">Key Areas of Focus:</h4>
-            <ul className="space-y-2 text-text-dark">
+            <h3 className="text-2xl font-bold text-primary dark:text-secondary mb-4">{selectedService.title}</h3>
+            <p className="text-lg text-text-dark dark:text-gray-200 mb-6">{selectedService.description}</p>
+            <h4 className="text-xl font-semibold text-text-dark dark:text-white mb-3">Key Areas of Focus:</h4>
+            <ul className="space-y-2 text-text-dark dark:text-gray-300">
               {selectedService.details.map((detail, index) => (
                 <li key={index} className="flex items-start">
                   <svg className="flex-shrink-0 h-6 w-6 text-secondary mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>

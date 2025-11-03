@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { imagePaths } from '../data/imagePaths';
+import ThemeToggleButton from './ThemeToggleButton';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -27,10 +29,10 @@ const Header: React.FC = () => {
 
 
   const activeLinkClass = 'text-secondary font-semibold';
-  const inactiveLinkClass = 'hover:text-primary transition-colors duration-300';
+  const inactiveLinkClass = 'hover:text-primary dark:hover:text-secondary transition-colors duration-300';
 
   return (
-    <header className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg' : 'shadow-md'}`}>
+    <header className={`bg-white dark:bg-gray-800 sticky top-0 z-50 transition-shadow duration-300 ${isScrolled ? 'shadow-lg dark:shadow-black/20' : 'shadow-md dark:shadow-black/20'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-28">
           <div className="flex-shrink-0">
@@ -42,7 +44,7 @@ const Header: React.FC = () => {
               />
             </Link>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center space-x-4">
             <nav className="flex items-center space-x-6">
               {navLinks.map((link) => (
                 <NavLink
@@ -56,11 +58,13 @@ const Header: React.FC = () => {
                 </NavLink>
               ))}
             </nav>
+            <ThemeToggleButton />
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggleButton />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-text-dark hover:text-primary focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-text-dark dark:text-gray-200 hover:text-primary focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
@@ -101,7 +105,7 @@ const Header: React.FC = () => {
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
                   `${
-                    isActive ? 'bg-primary text-white' : 'text-text-dark hover:bg-light-bg'
+                    isActive ? 'bg-primary text-white' : 'text-text-dark dark:text-gray-200 hover:bg-light-bg dark:hover:bg-gray-700'
                   } block px-3 py-2 rounded-md text-base font-medium`
                 }
               >

@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import CaseStudyCard from '../components/CaseStudyCard';
 import HeroCarousel from '../components/HeroCarousel';
@@ -138,7 +139,7 @@ const CaseStudiesPage: React.FC = () => {
 
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-gray-900">
       <HeroCarousel slides={portfolioSlides} />
       <div className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,10 +147,10 @@ const CaseStudiesPage: React.FC = () => {
             <h2 id="achievements-heading" className="sr-only">Our Achievements</h2>
             <div className="grid md:grid-cols-3 gap-8 text-center mb-20">
                 {achievements.map((item, index) => (
-                <div key={index} className="bg-light-bg p-8 rounded-lg shadow-md">
+                <div key={index} className="bg-light-bg dark:bg-gray-800 p-8 rounded-lg shadow-md">
                     <div className="flex justify-center items-center mb-4">{item.icon}</div>
-                    <p className="text-4xl font-bold text-primary">{item.metric}</p>
-                    <p className="mt-2 text-lg text-text-dark">{item.description}</p>
+                    <p className="text-4xl font-bold text-primary dark:text-white">{item.metric}</p>
+                    <p className="mt-2 text-lg text-text-dark dark:text-gray-300">{item.description}</p>
                 </div>
                 ))}
             </div>
@@ -157,8 +158,8 @@ const CaseStudiesPage: React.FC = () => {
 
             <section aria-labelledby="explore-work-heading">
             <div className="text-center">
-              <h2 id="explore-work-heading" className="text-3xl font-bold text-text-dark">Explore Our Work</h2>
-              <p className="mt-2 text-lg text-text-dark max-w-2xl mx-auto">
+              <h2 id="explore-work-heading" className="text-3xl font-bold text-text-dark dark:text-white">Explore Our Work</h2>
+              <p className="mt-2 text-lg text-text-dark dark:text-gray-300 max-w-2xl mx-auto">
                 Filter by service category to see how we've helped clients tackle their specific challenges.
               </p>
             </div>
@@ -171,8 +172,8 @@ const CaseStudiesPage: React.FC = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-5 py-2 text-sm font-semibold rounded-full transition-all duration-300 transform hover:scale-105 ${
                     selectedCategory === category
-                      ? 'bg-primary text-white shadow-md'
-                      : 'bg-white text-primary border border-primary hover:bg-light-bg'
+                      ? 'bg-primary text-white dark:bg-secondary dark:text-primary shadow-md'
+                      : 'bg-white text-primary border border-primary hover:bg-light-bg dark:bg-gray-800 dark:text-secondary dark:border-secondary dark:hover:bg-gray-700'
                   }`}
                 >
                   {category}
@@ -194,8 +195,8 @@ const CaseStudiesPage: React.FC = () => {
             </section>
 
             <section className="mt-16 sm:mt-24 text-center">
-                <h2 className="text-3xl font-bold text-text-dark sm:text-4xl">Our Tailored Approach</h2>
-                <p className="mt-4 text-lg text-text-dark max-w-3xl mx-auto">
+                <h2 className="text-3xl font-bold text-text-dark dark:text-white sm:text-4xl">Our Tailored Approach</h2>
+                <p className="mt-4 text-lg text-text-dark dark:text-gray-300 max-w-3xl mx-auto">
                     Our case studies demonstrate how we’ve helped clients achieve remarkable outcomes. Each story showcases our tailored approach — combining insight, innovation, and execution excellence to solve unique challenges and unlock new opportunities.
                 </p>
             </section>

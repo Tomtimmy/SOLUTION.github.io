@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({ to, variant = 'primary', children, clas
 
   const variantClasses = {
     primary: 'bg-primary text-white hover:bg-primary-hover',
-    secondary: 'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white',
+    secondary: 'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white dark:border-secondary dark:text-secondary dark:hover:bg-secondary dark:hover:text-primary',
   };
 
   return (

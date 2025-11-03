@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { imagePaths } from '../data/imagePaths';
@@ -11,7 +12,7 @@ const SocialIcon: React.FC<{ href: string; children: React.ReactNode }> = ({ hre
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-dark-bg text-white">
+    <footer className="bg-dark-bg dark:bg-gray-950 text-white">
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
