@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { imagePaths } from '../data/imagePaths';
 import ThemeToggleButton from './ThemeToggleButton';
@@ -16,6 +15,8 @@ const navLinks = [
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +27,21 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isSearchOpen]);
+  
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const searchTerm = searchInputRef.current?.value;
+    // In a real application, you would navigate to a search results page
+    // e.g., navigate(`/search?q=${searchTerm}`);
+    console.log('Searching for:', searchTerm);
+    setIsSearchOpen(false);
+  };
 
 
   const activeLinkClass = 'text-secondary font-semibold';
@@ -44,7 +60,7 @@ const Header: React.FC = () => {
               />
             </Link>
           </div>
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-2">
             <nav className="flex items-center space-x-6">
               {navLinks.map((link) => (
                 <NavLink
@@ -58,9 +74,23 @@ const Header: React.FC = () => {
                 </NavLink>
               ))}
             </nav>
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="p-2 rounded-full text-text-dark dark:text-gray-200 hover:bg-light-bg dark:hover:bg-gray-700 transition-colors duration-300"
+              aria-label="Open search bar"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </button>
             <ThemeToggleButton />
           </div>
           <div className="md:hidden flex items-center gap-2">
+             <button
+              onClick={() => setIsSearchOpen(true)}
+              className="p-2 rounded-full text-text-dark dark:text-gray-200 hover:bg-light-bg dark:hover:bg-gray-700 transition-colors duration-300"
+              aria-label="Open search bar"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </button>
             <ThemeToggleButton />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -113,6 +143,35 @@ const Header: React.FC = () => {
               </NavLink>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Search Overlay */}
+      {isSearchOpen && (
+        <div 
+            className="fixed inset-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm flex items-center justify-center p-4" 
+            onClick={() => setIsSearchOpen(false)}
+        >
+          <div className="w-full max-w-xl" onClick={(e) => e.stopPropagation()}>
+            <form onSubmit={handleSearchSubmit} className="relative">
+              <input
+                ref={searchInputRef}
+                type="search"
+                placeholder="Search the site..."
+                className="w-full pl-5 pr-12 py-4 text-lg border-2 border-primary dark:border-secondary rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-secondary/50 bg-white dark:bg-gray-800 text-text-dark dark:text-white"
+              />
+              <button type="submit" className="absolute inset-y-0 right-0 flex items-center pr-5" aria-label="Submit search">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary dark:text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </button>
+            </form>
+          </div>
+           <button 
+                onClick={() => setIsSearchOpen(false)} 
+                className="absolute top-6 right-6 text-text-dark dark:text-gray-300 hover:text-primary dark:hover:text-white"
+                aria-label="Close search bar"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+           </button>
         </div>
       )}
     </header>

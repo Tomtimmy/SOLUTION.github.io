@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { portfolioItems } from './CaseStudiesPage';
+import { portfolioItems } from '../data/portfolioItems';
 import LazyImage from '../components/LazyImage';
 
 const CaseStudyDetailPage: React.FC = () => {

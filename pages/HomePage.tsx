@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
@@ -17,11 +16,13 @@ const NEWSLETTER_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB2oktCE
 
 
 const clientLogos = [
-  { name: 'Acme Corp', placeholder: true },
-  { name: 'Stark Industries', placeholder: true },
-  { name: 'Wayne Enterprises', placeholder: true },
-  { name: 'Globex Corporation', placeholder: true },
-  { name: 'Cyberdyne Systems', placeholder: true },
+  { name: 'Aperture Science', imageUrl: 'https://i.imgur.com/v1s5nAz.png' },
+  { name: 'Black Mesa', imageUrl: 'https://i.imgur.com/yGLpAbR.png' },
+  { name: 'Stark Industries', imageUrl: 'https://i.imgur.com/3zM4iV9.png' },
+  { name: 'Wayne Enterprises', imageUrl: 'https://i.imgur.com/nRLiT1A.png' },
+  { name: 'Globex Corporation', imageUrl: 'https://i.imgur.com/gxsf02v.png' },
+  { name: 'Cyberdyne Systems', imageUrl: 'https://i.imgur.com/C184a4w.png' },
+  { name: 'Umbrella Corp', imageUrl: 'https://i.imgur.com/5nQ1vE9.png' },
 ];
 
 const consultingExpertise = [
@@ -155,16 +156,23 @@ const HomePage: React.FC = () => {
           <h2 className="text-center text-sm font-bold uppercase text-gray-500 dark:text-gray-400 tracking-widest">
             Trusted by Leading Organizations
           </h2>
-          <div className="mt-8">
-            <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 md:gap-x-12">
+          <div
+            className="w-full inline-flex flex-nowrap overflow-hidden mt-8 [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]"
+          >
+            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:paused">
               {clientLogos.map((logo, index) => (
-                <div key={index} className="flex items-center justify-center h-12 w-40 bg-gray-100 dark:bg-gray-800 rounded-md">
-                   <span className="text-lg font-medium text-gray-400 dark:text-gray-500">
-                    {logo.name}
-                  </span>
-                </div>
+                <li key={index}>
+                  <img src={logo.imageUrl} alt={logo.name} className="h-10 w-auto invert dark:invert-0" />
+                </li>
               ))}
-            </div>
+            </ul>
+            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll group-hover:paused" aria-hidden="true">
+              {clientLogos.map((logo, index) => (
+                <li key={index}>
+                  <img src={logo.imageUrl} alt={logo.name} className="h-10 w-auto invert dark:invert-0" />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
