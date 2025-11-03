@@ -144,9 +144,11 @@ const ServicesPage: React.FC = () => {
           <FadeInSection>
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {services.map(service => (
-                <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-start scroll-mt-24">
+                <div key={service.title} id={slugify(service.title)} className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-start group scroll-mt-24">
                     <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-light-bg mb-4">
-                        {service.icon}
+                        <div className="transition-transform duration-300 ease-in-out group-hover:scale-110">
+                          {service.icon}
+                        </div>
                     </div>
                     <div className="flex-grow">
                         <h3 className="text-2xl font-bold text-text-dark">{service.title}</h3>
@@ -237,6 +239,11 @@ const ServicesPage: React.FC = () => {
                 </li>
               ))}
             </ul>
+            <div className="mt-8 text-center">
+              <Button to="/contact" variant="primary" onClick={closeModal}>
+                Request a Consultation
+              </Button>
+            </div>
           </div>
         </Modal>
       )}

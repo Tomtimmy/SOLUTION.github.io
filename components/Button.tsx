@@ -6,9 +6,11 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary';
   children: React.ReactNode;
   className?: string;
+  // FIX: Added optional onClick prop to allow passing click handlers to the Link component.
+  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ to, variant = 'primary', children, className = '' }) => {
+const Button: React.FC<ButtonProps> = ({ to, variant = 'primary', children, className = '', onClick }) => {
   const baseClasses = 'inline-block px-8 py-3 rounded-md font-semibold text-center transition-transform transform hover:scale-105 duration-300 shadow-lg';
 
   const variantClasses = {
@@ -17,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({ to, variant = 'primary', children, clas
   };
 
   return (
-    <Link to={to} className={`${baseClasses} ${variantClasses[variant]} ${className}`}>
+    <Link to={to} className={`${baseClasses} ${variantClasses[variant]} ${className}`} onClick={onClick}>
       {children}
     </Link>
   );
