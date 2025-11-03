@@ -59,7 +59,7 @@ const BlogPage: React.FC = () => {
 
       <div className="py-16 sm:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
             <h2 className="text-4xl font-extrabold text-primary sm:text-5xl">Blog & Thought Leadership</h2>
             <p className="mt-4 text-xl text-text-dark">
               Industry insights, research updates, and practical advice on data management, business transformation, and operational leadership.

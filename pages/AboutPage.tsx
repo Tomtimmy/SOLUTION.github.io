@@ -2,32 +2,33 @@ import React from 'react';
 import Button from '../components/Button';
 import LazyImage from '../components/LazyImage';
 import { imagePaths } from '../data/imagePaths';
+import FadeInSection from '../components/FadeInSection';
 
 const coreValues = [
   {
     name: 'Integrity',
     description: 'We build trust through transparency and consistency.',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    icon: <svg xmlns="http://www.w.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Integrity Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
   },
   {
     name: 'Service',
     description: 'We go beyond expectations to create lasting value.',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Service Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
   },
   {
     name: 'Innovation',
     description: 'We thrive on new ideas that deliver practical solutions.',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
+    icon: <svg xmlns="http://www.w.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Innovation Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>,
   },
   {
     name: 'Collaboration',
     description: 'We believe great results come from collective intelligence.',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Collaboration Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>,
   },
   {
     name: 'Excellence',
     description: 'We measure success by the difference we make.',
-    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-label="Excellence Icon"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>,
   },
 ];
 
@@ -128,22 +129,25 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="mt-16 grid gap-10 md:grid-cols-3">
                 <div className="text-center">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
+                    <div className="relative group flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        <span className="absolute bottom-full mb-2 w-max px-2 py-1 text-sm text-white bg-text-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Data-Driven Strategy</span>
                     </div>
                     <h3 className="text-xl font-bold text-text-dark">Data-Driven Strategy</h3>
                     <p className="mt-2 text-text-dark">Our solutions are built on a foundation of rigorous data analysis, ensuring every decision is informed and impactful.</p>
                 </div>
                  <div className="text-center">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
+                    <div className="relative group flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm-9 3a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        <span className="absolute bottom-full mb-2 w-max px-2 py-1 text-sm text-white bg-text-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Tailored Solutions</span>
                     </div>
                     <h3 className="text-xl font-bold text-text-dark">Tailored Solutions</h3>
                     <p className="mt-2 text-text-dark">We understand that every organization is unique. We craft bespoke strategies that align perfectly with your specific goals.</p>
                 </div>
                  <div className="text-center">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
+                    <div className="relative group flex items-center justify-center h-16 w-16 rounded-full bg-primary mx-auto mb-5">
                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span className="absolute bottom-full mb-2 w-max px-2 py-1 text-sm text-white bg-text-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Measurable Impact</span>
                     </div>
                     <h3 className="text-xl font-bold text-text-dark">Measurable Impact</h3>
                     <p className="mt-2 text-text-dark">Our success is measured by yours. We focus on delivering tangible outcomes that improve efficiency and drive growth.</p>
@@ -161,11 +165,14 @@ const AboutPage: React.FC = () => {
                 <p className="mt-4 text-lg text-text-dark">Our core values are the foundation of every partnership and solution we deliver.</p>
             </div>
             <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-                {coreValues.map((value) => (
-                <div key={value.name} className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex justify-center items-center mb-4">
-                    {value.icon}
-                    </div>
+                {coreValues.map((value, index) => (
+                <div key={value.name} className="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transform transition-all duration-300">
+                    <FadeInSection delay={index * 100}>
+                      <div className="relative group flex justify-center items-center mb-4">
+                        {value.icon}
+                        <span className="absolute bottom-full mb-2 w-max px-2 py-1 text-sm text-white bg-text-dark rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">{value.name}</span>
+                      </div>
+                    </FadeInSection>
                     <h3 className="text-xl font-semibold text-primary">{value.name}</h3>
                     <p className="mt-2 text-base text-text-dark">{value.description}</p>
                 </div>
